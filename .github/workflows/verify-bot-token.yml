@@ -65,9 +65,17 @@ jobs:
           R: ${{ github.repository }}
         run: |
           set -euo pipefail
-          PERMS=$(GH_TOKEN="$BOT_TOKEN" gh api "repos/$R" --jq '.permissions | "push=\(.push) pull=\(.pull)"')
+          PERMS=$(GH_TOKEN="$BOT_TOKEN" gh api "repos/$R" --jq '.permissions | "push=\(.push) pull=\(.pull)"' 2>/dev/null || echo "push=false pull=false")
           echo "Repository access: $PERMS"
-          case "$PERMS" in *push=true*) ;; *) echo "::error::The token cannot write to $R. Check the App is installed on this repository with Contents: read and write."; exit 1 ;; esac
+          case "$PERMS" in
+            *push=true*) ;;
+            *pull=true*)
+              echo "::error::The token can read $R but not write to it. The app IS installed here, but is missing a permission: open the app's settings, set Contents and Pull requests to 'Read and write', then accept the new permissions on the installation (GitHub shows a banner until you do)."
+              exit 1 ;;
+            *)
+              echo "::error::The token has no access to $R at all (it cannot even read it). The app is installed somewhere, since the token minted, but not on this repository. Go to https://github.com/settings/installations, Configure the app, and under 'Repository access' add ebc-guide-data."
+              exit 1 ;;
+          esac
 
           SHA=$(GH_TOKEN="$BOT_TOKEN" gh api "repos/$R/commits/${{ github.ref_name }}" --jq .sha)
           GH_TOKEN="$BOT_TOKEN" gh api -X POST "repos/$R/git/refs" -f ref=refs/heads/bot-selftest -f sha="$SHA" --silent
