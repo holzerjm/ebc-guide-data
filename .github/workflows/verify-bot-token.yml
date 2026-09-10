@@ -64,24 +64,45 @@ jobs:
           BOT_TOKEN: ${{ steps.app.outputs.token || secrets.EBC_BOT_PAT }}
           R: ${{ github.repository }}
         run: |
-          set -euo pipefail
-          PERMS=$(GH_TOKEN="$BOT_TOKEN" gh api "repos/$R" --jq '.permissions | "push=\(.push) pull=\(.pull)"' 2>/dev/null || echo "push=false pull=false")
-          echo "Repository access: $PERMS"
-          case "$PERMS" in
-            *push=true*) ;;
-            *pull=true*)
-              echo "::error::The token can read $R but not write to it. The app IS installed here, but is missing a permission: open the app's settings, set Contents and Pull requests to 'Read and write', then accept the new permissions on the installation (GitHub shows a banner until you do)."
-              exit 1 ;;
-            *)
-              echo "::error::The token has no access to $R at all (it cannot even read it). The app is installed somewhere, since the token minted, but not on this repository. Go to https://github.com/settings/installations, Configure the app, and under 'Repository access' add ebc-guide-data."
-              exit 1 ;;
-          esac
+          set -uo pipefail
+          fail=0
 
-          SHA=$(GH_TOKEN="$BOT_TOKEN" gh api "repos/$R/commits/${{ github.ref_name }}" --jq .sha)
-          GH_TOKEN="$BOT_TOKEN" gh api -X POST "repos/$R/git/refs" -f ref=refs/heads/bot-selftest -f sha="$SHA" --silent
-          echo "Created refs/heads/bot-selftest — the token can push."
-          GH_TOKEN="$BOT_TOKEN" gh api -X DELETE "repos/$R/git/refs/heads/bot-selftest" --silent
-          echo "Deleted it again — nothing left behind."
+          # What the installation can actually reach. This is authoritative; the `permissions` field on a
+          # repository object is not populated for app installation tokens, so do not infer from it.
+          echo "Repositories this installation can reach:"
+          if REPOS=$(GH_TOKEN="$BOT_TOKEN" gh api /installation/repositories --jq '.repositories[].full_name' 2>&1); then
+            echo "$REPOS" | sed 's/^/  /'
+            echo "$REPOS" | grep -qx "$R" \
+              && echo "  -> $R is in the list." \
+              || { echo "::error::$R is NOT in the installation. https://github.com/settings/installations -> Configure -> Repository access -> add it."; fail=1; }
+          else
+            echo "  could not list them: $REPOS"
+            echo "  (a fine-grained PAT cannot list installations — that is fine, the write test below is what counts)"
+          fi
+
+          # The only check that cannot be misread: try the write, then undo it.
+          echo
+          SHA=$(GH_TOKEN="$BOT_TOKEN" gh api "repos/$R/commits/${{ github.ref_name }}" --jq .sha 2>/dev/null)
+          if [ -z "${SHA:-}" ]; then
+            echo "::error::The token cannot read $R. The app is not installed on this repository, or the token is for a different app."
+            exit 1
+          fi
+          echo "Can read $R (HEAD is ${SHA:0:7})."
+
+          if ERR=$(GH_TOKEN="$BOT_TOKEN" gh api -X POST "repos/$R/git/refs" -f ref=refs/heads/bot-selftest -f sha="$SHA" 2>&1 >/dev/null); then
+            echo "Can push: created refs/heads/bot-selftest."
+            GH_TOKEN="$BOT_TOKEN" gh api -X DELETE "repos/$R/git/refs/heads/bot-selftest" --silent 2>/dev/null \
+              && echo "Cleaned it up again — nothing left behind." \
+              || echo "::warning::Created the test ref but could not delete it. Remove refs/heads/bot-selftest by hand."
+          else
+            echo "::error::The token can read $R but cannot push to it: $ERR"
+            echo "::error::Set Contents and Pull requests to 'Read and write' on the app, then accept the new permissions on the installation — GitHub shows a banner until you do, and the token keeps the old scopes meanwhile."
+            fail=1
+          fi
 
           echo
-          echo "The bot's credentials are working. A suggestion labelled bot:draft will open a pull request."
+          if [ "$fail" = "0" ]; then
+            echo "The bot's credentials are working. A suggestion labelled bot:draft will open a pull request."
+          else
+            exit 1
+          fi
