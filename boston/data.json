@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": 13,
-    "updatedAt": "2026-09-09",
-    "updatedBy": "MICHELIN Guide 2025 markers; added Fox & The Knife, Bar Volpe, Somaek, Mooncusser",
+    "updatedAt": "2026-09-10",
+    "updatedBy": "Added Zurito (suggested in #1)",
     "michelinEdition": "2025"
   },
   "center": {
@@ -1261,6 +1261,26 @@
           ],
           "blurb": "Chef Carl Dooley's globally inspired, seafood-focused tasting menu upstairs in Back Bay, with the casual Moon Bar downstairs for à la carte plates and cocktails.",
           "addedOn": "2026-09-09"
+        },
+        {
+          "id": "zurito",
+          "name": "Zurito",
+          "cat": "med",
+          "kind": "Basque pintxo bar",
+          "price": "$$$",
+          "phone": "(857) 305-3177",
+          "website": "https://www.zuritoboston.com/",
+          "hours": "Dinner nightly; Sat–Sun from noon",
+          "address": "26 Charles St, Boston, MA 02114",
+          "lat": 42.35677,
+          "lng": -71.06997,
+          "tags": [
+            "Drinks",
+            "Date",
+            "Group"
+          ],
+          "blurb": "Jamie Bissonnette's Basque pintxo bar on Beacon Hill — small plates, Iberian hams and a Spanish wine list.",
+          "addedOn": "2026-09-10"
         }
       ]
     },
