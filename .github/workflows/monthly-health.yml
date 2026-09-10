@@ -1,0 +1,39 @@
+# Monthly link check. A report, not a gate — it never fails.
+#
+# GitHub disables scheduled workflows after about 60 days without repository activity, so the job writes
+# its report to a `health` branch: a commit on any branch counts as activity and keeps the schedule alive.
+# (main only accepts reviewed pull requests, which is why the report does not go there.)
+name: Monthly health check
+
+on:
+  schedule:
+    - cron: "0 13 1 * *"   # the 1st of each month, about 9am in Boston
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 20 }
+
+      - name: Check every outbound link
+        run: |
+          node scripts/linkcheck.mjs | tee report.txt
+          { echo '## Link check'; echo '```'; cat report.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Keep the report, and the schedule alive
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -B health
+          mkdir -p health
+          { echo "# Link check — $(date -u +%Y-%m-%d)"; echo; echo '```'; cat report.txt; echo '```'; } > health/latest.md
+          git add health/latest.md
+          git commit -m "Link check $(date -u +%Y-%m-%d)" || exit 0
+          git push --force origin health

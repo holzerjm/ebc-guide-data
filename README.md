@@ -27,7 +27,13 @@ The guide's own code is not here. It lives in a separate, private repository.
 
 ## Proposing a change
 
-Open a pull request against `boston/data.json`. Every change is checked automatically before it can merge:
+**No Git needed:** [suggest a place](../../issues/new?template=suggest-place.yml) or
+[report a change](../../issues/new?template=flag-place.yml) with a form — a maintainer turns accepted
+suggestions into a pull request, with the address geocoded for you.
+
+**With Git:** open a pull request against `boston/data.json`. See [CONTRIBUTING.md](CONTRIBUTING.md) for the
+entry format, and [MAINTAINING.md](MAINTAINING.md) if you are reviewing them. Every change is checked
+automatically before it can merge:
 
 - **The schema must validate.** Required fields, a category that exists, coordinates inside Greater Boston, `http(s)`
   links only, no HTML in text fields, and hex-only category colours.

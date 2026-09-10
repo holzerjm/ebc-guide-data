@@ -1,0 +1,111 @@
+name: "➕ Suggest a place"
+description: "Tell us about a restaurant, bar, activity or hotel worth adding to the Boston guide"
+title: "[New place] "
+labels: ["new-place"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping keep the guide useful. A maintainer reviews every suggestion and turns the
+        accepted ones into a pull request — nothing appears on the guide until someone merges it.
+
+        You do not need to know the map coordinates: they are looked up from the address for you.
+  - type: dropdown
+    id: section
+    attributes:
+      label: Which part of the guide?
+      options:
+        - "Eat & Drink"
+        - "Activities"
+        - "Hotels"
+    validations: { required: true }
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      placeholder: "e.g. Neptune Oyster"
+    validations: { required: true }
+  - type: input
+    id: address
+    attributes:
+      label: Street address
+      description: "Street, city and ZIP. It must be in or around Boston — the guide only covers what a visitor can reach from the Briefing Center."
+      placeholder: "63 Salem St, Boston, MA 02113"
+    validations: { required: true }
+  - type: input
+    id: website
+    attributes:
+      label: Official website
+      placeholder: "https://…"
+    validations: { required: true }
+  - type: input
+    id: category
+    attributes:
+      label: Category
+      description: |
+        Use one of the categories that part of the guide already has:
+        • **Eat & Drink** — Seafood · Italian · Steakhouse · Mediterranean & Spanish · Bars & breweries · Casual & food halls · Coffee & bakery · New American · Asian
+        • **Activities** — Arts & museums · Science & wildlife · History & landmarks · Games & fun · Sports · Shopping & strolls
+        • **Hotels** — Luxury & full-service · Lifestyle & design · Extended-stay & value
+      placeholder: "Seafood"
+    validations: { required: true }
+  - type: dropdown
+    id: price
+    attributes:
+      label: Price (Eat & Drink only)
+      options: ["—", "$", "$$", "$$$", "$$$$"]
+      default: 0
+  - type: input
+    id: kind
+    attributes:
+      label: In a few words, what is it?
+      description: "Two to four words, the way the guide describes places — e.g. 'Seafood & raw bar', 'Farm-to-table / seafood'."
+      placeholder: "Seafood & raw bar"
+  - type: input
+    id: hours
+    attributes:
+      label: Opening hours
+      placeholder: "Daily from 11am; closed Mon"
+  - type: input
+    id: phone
+    attributes:
+      label: Phone
+      placeholder: "(617) 555-1234"
+  - type: textarea
+    id: blurb
+    attributes:
+      label: One sentence a visitor would find useful
+      description: "Factual, under 200 characters. What is it, and what is it good for? No marketing copy."
+      placeholder: "Tiny North End raw bar with a famous lobster roll — walk-ins only, so expect a wait."
+    validations: { required: true }
+  - type: checkboxes
+    id: tags
+    attributes:
+      label: Good for…
+      description: "Only the ones that genuinely apply. These become the guide's filters."
+      options:
+        - label: "Impress a client"
+        - label: "Group-friendly"
+        - label: "Private dining"
+        - label: "Date-worthy"
+        - label: "Quick bite"
+        - label: "Lunch"
+        - label: "Brunch"
+        - label: "Drinks"
+        - label: "Late night"
+        - label: "Waterfront"
+        - label: "Casual"
+        - label: "Family-friendly"
+  - type: textarea
+    id: why
+    attributes:
+      label: Why is it worth a visitor's time? (optional)
+      description: "One or two sentences for the maintainer. This is not published as-is."
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Before you submit
+      options:
+        - label: "This is accurate to the best of my knowledge, and a genuine recommendation rather than promotion."
+          required: true
+        - label: "I have a connection to this place (I work there, own it, or represent it). Disclosing is fine — we just like to know."

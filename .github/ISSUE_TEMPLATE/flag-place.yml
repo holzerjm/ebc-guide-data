@@ -1,0 +1,40 @@
+name: "🚩 Report a change"
+description: "Something in the guide is wrong, out of date, or has closed"
+title: "[Change] "
+labels: ["flag"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you — this is the most useful kind of report. Wrong opening hours or a closed restaurant
+        is worse than a missing one, because someone may be standing outside it.
+  - type: input
+    id: place
+    attributes:
+      label: Which place?
+      description: "Pre-filled if you used the Report a change link in the guide."
+      placeholder: "Neptune Oyster"
+    validations: { required: true }
+  - type: dropdown
+    id: reason
+    attributes:
+      label: What is wrong?
+      options:
+        - "It has closed"
+        - "It has moved"
+        - "Opening hours are wrong"
+        - "Phone number or website is wrong"
+        - "The map pin is in the wrong place"
+        - "The description is wrong or out of date"
+        - "Something else"
+    validations: { required: true }
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: "What should it say instead? A link to a source helps a lot."
+  - type: input
+    id: source
+    attributes:
+      label: Source (optional)
+      placeholder: "https://…"

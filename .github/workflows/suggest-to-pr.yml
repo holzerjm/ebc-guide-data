@@ -1,0 +1,123 @@
+# Turns a "Suggest a place" issue into a draft pull request.
+#
+# A MAINTAINER STARTS IT, NOT THE SUBMITTER. The issue form applies `new-place`, which does nothing here.
+# The bot runs only when someone with triage rights adds `bot:draft`, so text from the internet is never
+# parsed, geocoded or handed a token until a human has looked at it and asked for it.
+# To re-run after the submitter edits the issue: remove and re-add the label.
+#
+# TWO JOBS, SPLIT ON TRUST:
+#   draft   — no push token. Parses the untrusted issue body, builds the entry, validates, and uploads the
+#             result as an artifact. If it cannot, it comments on the issue and stops.
+#   publish — holds the token. Downloads the artifact and opens the pull request without running any
+#             issue-derived code, so a bug in the parser can never reach a credential.
+#
+# The pull request is opened with a GitHub App token (or a fine-grained PAT), never GITHUB_TOKEN: pull
+# requests created with GITHUB_TOKEN do not trigger other workflows, and an unchecked pull request must
+# never be mergeable. Configure one of:
+#   EBC_APP_ID + EBC_APP_PRIVATE_KEY   a GitHub App with Contents and Pull requests read/write
+#   EBC_BOT_PAT                        a fine-grained PAT scoped to this repository
+name: Suggestion bot
+
+on:
+  issues:
+    types: [labeled]
+
+concurrency:
+  group: suggestion-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
+jobs:
+  draft:
+    if: github.event.label.name == 'bot:draft'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    outputs:
+      status: ${{ steps.build.outputs.status }}
+      branch: ${{ steps.build.outputs.branch }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 20 }
+
+      - name: Draft the entry from the issue
+        id: build
+        run: node scripts/issue-to-entry.mjs
+
+      - name: Stage the result
+        if: steps.build.outputs.status == 'ok'
+        run: |
+          mkdir -p bot-artifact
+          cp boston/data.json bot-artifact/data.json
+          cp "$RUNNER_TEMP/pr-title.txt" "$RUNNER_TEMP/pr-body.md" bot-artifact/
+
+      - uses: actions/upload-artifact@v4
+        if: steps.build.outputs.status == 'ok'
+        with:
+          name: draft-${{ github.event.issue.number }}
+          path: bot-artifact/
+          retention-days: 1
+
+      - name: Explain why it could not be drafted
+        if: steps.build.outputs.status != 'ok'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue comment "${{ github.event.issue.number }}" --repo "${{ github.repository }}" --body-file "$RUNNER_TEMP/issue-comment.md"
+
+  publish:
+    needs: draft
+    if: needs.draft.outputs.status == 'ok'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    env:
+      HAS_APP: ${{ secrets.EBC_APP_ID != '' }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false   # the push uses the bot token, not GITHUB_TOKEN
+
+      - name: Mint a bot token
+        id: app
+        if: env.HAS_APP == 'true'
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.EBC_APP_ID }}
+          private-key: ${{ secrets.EBC_APP_PRIVATE_KEY }}
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: draft-${{ github.event.issue.number }}
+          path: bot-artifact
+
+      - name: Open the draft pull request
+        env:
+          BOT_TOKEN: ${{ steps.app.outputs.token || secrets.EBC_BOT_PAT }}
+          GH_TOKEN: ${{ github.token }}
+          BRANCH: ${{ needs.draft.outputs.branch }}
+          ISSUE: ${{ github.event.issue.number }}
+        run: |
+          set -euo pipefail
+          if [ -z "${BOT_TOKEN:-}" ]; then
+            echo "::warning::No bot token configured (EBC_APP_ID/EBC_APP_PRIVATE_KEY or EBC_BOT_PAT) — cannot open the pull request."
+            gh issue comment "$ISSUE" --repo "${{ github.repository }}" \
+              --body "I drafted an entry for this suggestion, but the bot has no push token configured yet, so a maintainer needs to open the pull request by hand. See MAINTAINING.md."
+            exit 0
+          fi
+          cp bot-artifact/data.json boston/data.json
+          git config user.name "ebc-guide-bot"
+          git config user.email "ebc-guide-bot@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add boston/data.json
+          git commit -m "Draft entry from suggestion #${ISSUE}"
+          AUTH=$(printf 'x-access-token:%s' "$BOT_TOKEN" | base64 | tr -d '\n')
+          git -c http.extraheader="AUTHORIZATION: basic ${AUTH}" \
+            push --force "https://github.com/${{ github.repository }}.git" "HEAD:refs/heads/${BRANCH}"
+          PR_URL=$(GH_TOKEN="$BOT_TOKEN" gh pr list --head "$BRANCH" --json url -q '.[0].url')
+          if [ -z "$PR_URL" ]; then
+            PR_URL=$(GH_TOKEN="$BOT_TOKEN" gh pr create --draft --base main --head "$BRANCH" \
+              --title "$(cat bot-artifact/pr-title.txt)" --body-file bot-artifact/pr-body.md)
+          fi
+          gh issue comment "$ISSUE" --repo "${{ github.repository }}" \
+            --body "Thanks! I have drafted this as a pull request for a maintainer to check — it reaches the guide once someone merges it: ${PR_URL}"

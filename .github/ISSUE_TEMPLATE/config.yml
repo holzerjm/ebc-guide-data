@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: ✉️ Ask the EBC Concierge
+    url: mailto:ebc-concierge@redhat.com
+    about: Questions about a visit, a reservation or a briefing — not about the guide's data
