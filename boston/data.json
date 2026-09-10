@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": 13,
-    "updatedAt": "2026-09-09",
-    "updatedBy": "MICHELIN Guide 2025 markers; added Fox & The Knife, Bar Volpe, Somaek, Mooncusser",
+    "updatedAt": "2026-09-10",
+    "updatedBy": "Suggested in #1",
     "michelinEdition": "2025"
   },
   "center": {
@@ -1261,6 +1261,25 @@
           ],
           "blurb": "Chef Carl Dooley's globally inspired, seafood-focused tasting menu upstairs in Back Bay, with the casual Moon Bar downstairs for à la carte plates and cocktails.",
           "addedOn": "2026-09-09"
+        },
+        {
+          "id": "zurito",
+          "name": "Zurito",
+          "cat": "med",
+          "kind": "Spanish tapas",
+          "price": "$$$",
+          "phone": "(857)305-3177",
+          "website": "https://www.zuritoboston.com/",
+          "hours": "Monday - Thursday  5PM - 10PM  Friday   5PM - 11PM  Saturday  12PM - 11PM  Sunday  12PM - 9PM",
+          "address": "26 Charles St, Boston, MA, 02114",
+          "lat": 42.35677,
+          "lng": -71.06997,
+          "tags": [
+            "Drinks",
+            "Casual"
+          ],
+          "blurb": "With only 60 seats and a prime Beacon Hill location, the restaurant fills up fast, and the menu style leads to lingering at the bar with a view of the street, hanging legs of jamon, and a small, buzzy room",
+          "addedOn": "2026-09-10"
         }
       ]
     },
