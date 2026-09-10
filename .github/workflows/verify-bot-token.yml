@@ -37,6 +37,28 @@ jobs:
           permission-contents: write
           permission-pull-requests: write
 
+      - name: What that failure usually means
+        if: failure() && steps.app.outcome == 'failure'
+        run: |
+          cat <<'MSG'
+          The token could not be minted. The usual causes, in order:
+
+          "Integration must generate a public key"
+              The App ID and the private key belong to different apps, or that app has no key.
+              Open the app's settings page: the App ID is at the top, and "Private keys" is further down.
+              Both secrets must come from that same page. Generate a key there if the section is empty.
+
+          "A JSON web token could not be decoded" / "invalid key"
+              EBC_APP_PRIVATE_KEY is not the whole file. Paste the entire .pem including the
+              -----BEGIN RSA PRIVATE KEY----- and -----END RSA PRIVATE KEY----- lines.
+
+          "resource not accessible" / the next step says it cannot write
+              The app exists but is not installed on this repository, or lacks a permission.
+              Sidebar -> Install App, choose this repository, and give it Contents and
+              Pull requests: Read and write.
+          MSG
+          exit 1
+
       - name: Can it see this repository, and can it write?
         env:
           BOT_TOKEN: ${{ steps.app.outputs.token || secrets.EBC_BOT_PAT }}

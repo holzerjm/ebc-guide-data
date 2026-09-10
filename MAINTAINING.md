@@ -95,9 +95,18 @@ It must be a GitHub App token or a fine-grained PAT, **not** `GITHUB_TOKEN`: pul
 A fine-grained PAT works too — store it as `EBC_BOT_PAT` instead, scoped to this repository with Contents
 and Pull requests read/write. An app is better: its token is short-lived and it does not expire on a date.
 
-**Check it works:** open a test issue with the *Suggest a place* form, add the `bot:draft` label, and watch
-the Actions tab. Within a minute a draft pull request should appear and the bot should comment the link on
-the issue. Close the issue and delete the branch afterwards.
+**Check it works** without filing a fake suggestion: *Actions → Verify bot token → Run workflow*. It mints a
+token exactly the way the bot does and proves it can write, then cleans up after itself. If it fails it
+prints what to fix. The most common one:
+
+| Error | Cause |
+|---|---|
+| `Integration must generate a public key` | The App ID and the private key are from **different apps**, or that app has no key. Both secrets must come from the same app's settings page — App ID at the top, **Private keys** further down. |
+| `A JSON web token could not be decoded` | `EBC_APP_PRIVATE_KEY` is not the whole file. Paste the entire `.pem`, `-----BEGIN…` and `-----END…` lines included. |
+| It mints, but cannot write | The app is not installed on this repository, or is missing *Contents* / *Pull requests: Read and write*. |
+
+Once that passes, the real thing: open a test issue with the *Suggest a place* form, add `bot:draft`, and a
+draft pull request should appear within a minute. Close the issue and delete the branch afterwards.
 
 ### 2. Protect `main`
 
