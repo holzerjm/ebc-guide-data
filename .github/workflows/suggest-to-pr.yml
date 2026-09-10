@@ -22,8 +22,12 @@ on:
   issues:
     types: [labeled]
 
+# Keyed on the LABEL as well as the issue. Keyed on the issue alone, any other label event on the same
+# issue cancels an in-flight draft — applying `new-place` and `bot:draft` together is enough to kill it,
+# which is exactly what happened the first time this ran. Re-applying `bot:draft` still supersedes its own
+# previous run, which is the intended way to re-draft after the submitter edits the issue.
 concurrency:
-  group: suggestion-${{ github.event.issue.number }}
+  group: suggestion-${{ github.event.issue.number }}-${{ github.event.label.name }}
   cancel-in-progress: true
 
 jobs:
