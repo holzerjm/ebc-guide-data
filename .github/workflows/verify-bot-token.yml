@@ -1,0 +1,57 @@
+# Proves the suggestion bot's credentials are configured, without filing a fake suggestion.
+#
+# Run it from the Actions tab (Run workflow) after setting up the App, or any time the bot stops
+# opening pull requests. It mints a token exactly the way the bot does, checks it can reach this
+# repository, and creates and immediately deletes a throwaway ref to prove it can actually write.
+# It never opens an issue or a pull request and leaves nothing behind.
+name: Verify bot token
+
+on:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      HAS_APP: ${{ secrets.EBC_APP_ID != '' }}
+      HAS_PAT: ${{ secrets.EBC_BOT_PAT != '' }}
+    steps:
+      - name: Is anything configured at all?
+        run: |
+          echo "EBC_APP_ID / EBC_APP_PRIVATE_KEY set : $HAS_APP"
+          echo "EBC_BOT_PAT set                      : $HAS_PAT"
+          if [ "$HAS_APP" != "true" ] && [ "$HAS_PAT" != "true" ]; then
+            echo "::error::No bot credentials. Set EBC_APP_ID + EBC_APP_PRIVATE_KEY, or EBC_BOT_PAT. See MAINTAINING.md."
+            exit 1
+          fi
+
+      # Asking for these two permissions explicitly is itself the test: if the App was not granted
+      # Contents and Pull requests read/write, minting the token fails here with a clear message.
+      - name: Mint a token the way the bot does
+        id: app
+        if: env.HAS_APP == 'true'
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.EBC_APP_ID }}
+          private-key: ${{ secrets.EBC_APP_PRIVATE_KEY }}
+          permission-contents: write
+          permission-pull-requests: write
+
+      - name: Can it see this repository, and can it write?
+        env:
+          BOT_TOKEN: ${{ steps.app.outputs.token || secrets.EBC_BOT_PAT }}
+          R: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          PERMS=$(GH_TOKEN="$BOT_TOKEN" gh api "repos/$R" --jq '.permissions | "push=\(.push) pull=\(.pull)"')
+          echo "Repository access: $PERMS"
+          case "$PERMS" in *push=true*) ;; *) echo "::error::The token cannot write to $R. Check the App is installed on this repository with Contents: read and write."; exit 1 ;; esac
+
+          SHA=$(GH_TOKEN="$BOT_TOKEN" gh api "repos/$R/commits/${{ github.ref_name }}" --jq .sha)
+          GH_TOKEN="$BOT_TOKEN" gh api -X POST "repos/$R/git/refs" -f ref=refs/heads/bot-selftest -f sha="$SHA" --silent
+          echo "Created refs/heads/bot-selftest — the token can push."
+          GH_TOKEN="$BOT_TOKEN" gh api -X DELETE "repos/$R/git/refs/heads/bot-selftest" --silent
+          echo "Deleted it again — nothing left behind."
+
+          echo
+          echo "The bot's credentials are working. A suggestion labelled bot:draft will open a pull request."
