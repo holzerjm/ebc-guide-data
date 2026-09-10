@@ -2,7 +2,7 @@
   "meta": {
     "version": 13,
     "updatedAt": "2026-09-10",
-    "updatedBy": "Suggested in #1",
+    "updatedBy": "Added Zurito (suggested in #1)",
     "michelinEdition": "2025"
   },
   "center": {
@@ -1266,19 +1266,20 @@
           "id": "zurito",
           "name": "Zurito",
           "cat": "med",
-          "kind": "Spanish tapas",
+          "kind": "Basque pintxo bar",
           "price": "$$$",
-          "phone": "(857)305-3177",
+          "phone": "(857) 305-3177",
           "website": "https://www.zuritoboston.com/",
-          "hours": "Monday - Thursday  5PM - 10PM  Friday   5PM - 11PM  Saturday  12PM - 11PM  Sunday  12PM - 9PM",
-          "address": "26 Charles St, Boston, MA, 02114",
+          "hours": "Dinner nightly; Sat–Sun from noon",
+          "address": "26 Charles St, Boston, MA 02114",
           "lat": 42.35677,
           "lng": -71.06997,
           "tags": [
             "Drinks",
-            "Casual"
+            "Date",
+            "Group"
           ],
-          "blurb": "With only 60 seats and a prime Beacon Hill location, the restaurant fills up fast, and the menu style leads to lingering at the bar with a view of the street, hanging legs of jamon, and a small, buzzy room",
+          "blurb": "Jamie Bissonnette's Basque pintxo bar on Beacon Hill — small plates, Iberian hams and a Spanish wine list.",
           "addedOn": "2026-09-10"
         }
       ]
