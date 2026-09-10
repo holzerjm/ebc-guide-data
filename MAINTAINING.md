@@ -74,7 +74,8 @@ It must be a GitHub App token or a fine-grained PAT, **not** `GITHUB_TOKEN`: pul
 **Or create a new app:**
 
 1. <https://github.com/settings/apps/new>
-2. **GitHub App name**: `ebc-guide-bot` · **Homepage URL**: this repository's URL
+2. **GitHub App name**: `ebc-guide-bot` · **Homepage URL**: `https://github.com/holzerjm/ebc-guide-data`
+   (required, but cosmetic — it is only a link on the app's own page and affects nothing)
 3. Under **Webhook**, untick **Active** — the app never receives events
 4. **Repository permissions** → *Contents*: **Read and write** · *Pull requests*: **Read and write**.
    Leave everything else at *No access*
