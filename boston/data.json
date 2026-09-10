@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": 13,
-    "updatedAt": "2026-09-09",
-    "updatedBy": "MICHELIN Guide 2025 markers; added Fox & The Knife, Bar Volpe, Somaek, Mooncusser",
+    "updatedAt": "2026-09-10",
+    "updatedBy": "Suggested in #6",
     "michelinEdition": "2025"
   },
   "center": {
@@ -1261,6 +1261,24 @@
           ],
           "blurb": "Chef Carl Dooley's globally inspired, seafood-focused tasting menu upstairs in Back Bay, with the casual Moon Bar downstairs for à la carte plates and cocktails.",
           "addedOn": "2026-09-09"
+        },
+        {
+          "id": "zz-bot-test-place",
+          "name": "ZZ Bot Test Place",
+          "cat": "seafood",
+          "kind": "Test entry, not a real place",
+          "price": "$$",
+          "website": "https://example.com",
+          "hours": "Never — this is a test",
+          "address": "1 City Hall Sq, Boston, MA 02201",
+          "lat": 42.36037,
+          "lng": -71.05798,
+          "tags": [
+            "Quick",
+            "Lunch"
+          ],
+          "blurb": "Temporary entry created to check the suggestion bot end to end; it will be deleted.",
+          "addedOn": "2026-09-10"
         }
       ]
     },
