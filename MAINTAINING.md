@@ -103,7 +103,8 @@ prints what to fix. The most common one:
 |---|---|
 | `Integration must generate a public key` | The App ID and the private key are from **different apps**, or that app has no key. Both secrets must come from the same app's settings page — App ID at the top, **Private keys** further down. |
 | `A JSON web token could not be decoded` | `EBC_APP_PRIVATE_KEY` is not the whole file. Paste the entire `.pem`, `-----BEGIN…` and `-----END…` lines included. |
-| It mints, but cannot write | The app is not installed on this repository, or is missing *Contents* / *Pull requests: Read and write*. |
+| Mints, but `push=false pull=false` | The app is **not installed on this repository**. <https://github.com/settings/installations> → Configure → *Repository access* → add `ebc-guide-data`. |
+| Mints, but `push=false pull=true` | Installed here, but missing a permission. Set *Contents* and *Pull requests* to **Read and write**, then **accept the new permissions on the installation** — GitHub shows a banner until you do, and the old token keeps the old scopes meanwhile. |
 
 Once that passes, the real thing: open a test issue with the *Suggest a place* form, add `bot:draft`, and a
 draft pull request should appear within a minute. Close the issue and delete the branch afterwards.
