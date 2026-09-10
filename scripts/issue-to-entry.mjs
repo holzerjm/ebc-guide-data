@@ -82,9 +82,15 @@ if (missing.length) stop("parse_failed", `This suggestion is missing ${missing.j
 if (/^http:\/\//i.test(website)) website = website.replace(/^http:/i, "https:");
 if (!/^https:\/\/[^\s"'<>\\]+$/.test(website)) stop("parse_failed", `"${website}" does not look like a website address I can use. It needs to be a plain https:// link.`);
 
-/* category and tags must be this section's own vocabulary */
-const catKey = Object.entries(sec.categories)
-  .find(([k, c]) => [k, String(c.label)].some((s) => s.toLowerCase() === get("Category").toLowerCase()))?.[0];
+/* Category and tags must be this section's own vocabulary. Match the key or the whole label first, then
+   fall back to a single word of the label: someone suggesting a tapas bar reasonably types "Spanish" when
+   the category reads "Mediterranean & Spanish". A maintainer reviews the result either way, and anything
+   still unmatched is left as typed so the checks go red rather than the bot guessing. */
+const catInput = get("Category").toLowerCase().trim();
+const catEntries = Object.entries(sec.categories);
+const catMatch = catEntries.find(([k, c]) => [k, String(c.label)].some((s) => s.toLowerCase() === catInput))
+  || (catInput && catEntries.find(([, c]) => String(c.label).toLowerCase().split(/[^a-z]+/).filter((w) => w.length > 2).includes(catInput)));
+const catKey = catMatch ? catMatch[0] : undefined;
 const tagKeys = checked("Good for…")
   .map((label) => Object.entries(sec.tagLabels || {}).find(([, l]) => String(l).toLowerCase() === label.toLowerCase())?.[0])
   .filter(Boolean);
