@@ -1,0 +1,5 @@
+# The validator, the guard and the workflow decide whether a data change may merge, so a pull
+# request must not be able to weaken them and pass its own check. Review is required here.
+/.github/  @holzerjm
+/lib/      @holzerjm
+/scripts/  @holzerjm

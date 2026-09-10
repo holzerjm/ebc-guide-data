@@ -1,0 +1,2110 @@
+{
+  "meta": {
+    "version": 13,
+    "updatedAt": "2026-09-09",
+    "updatedBy": "MICHELIN Guide 2025 markers; added Fox & The Knife, Bar Volpe, Somaek, Mooncusser",
+    "michelinEdition": "2025"
+  },
+  "center": {
+    "name": "Red Hat Executive Briefing Center",
+    "address": "300 Necco St, Boston, MA 02210",
+    "lat": 42.34917,
+    "lng": -71.05084
+  },
+  "sections": {
+    "dining": {
+      "label": "Eat & Drink",
+      "icon": "ti-tools-kitchen-2",
+      "catLabel": "Style",
+      "hasPrice": true,
+      "siteLabel": "Website",
+      "categories": {
+        "seafood": {
+          "label": "Seafood",
+          "color": "#2f7ed8"
+        },
+        "italian": {
+          "label": "Italian",
+          "color": "#d8542b"
+        },
+        "steak": {
+          "label": "Steakhouse",
+          "color": "#b5710f"
+        },
+        "med": {
+          "label": "Mediterranean & Spanish",
+          "color": "#cf4f7a"
+        },
+        "bar": {
+          "label": "Bars & breweries",
+          "color": "#7268d6"
+        },
+        "casual": {
+          "label": "Casual & food halls",
+          "color": "#188f68"
+        },
+        "bakery": {
+          "label": "Coffee & bakery",
+          "color": "#5f9020"
+        },
+        "american": {
+          "label": "New American",
+          "color": "#5b6b7b"
+        },
+        "asian": {
+          "label": "Asian",
+          "color": "#0d9488"
+        }
+      },
+      "intents": [
+        {
+          "key": "walkable",
+          "label": "Walkable",
+          "computed": true
+        },
+        {
+          "key": "Drinks",
+          "label": "Drinks & bars"
+        },
+        {
+          "key": "Quick",
+          "label": "Quick bite"
+        },
+        {
+          "key": "Group",
+          "label": "Group-friendly"
+        },
+        {
+          "key": "Private",
+          "label": "Private dining"
+        },
+        {
+          "key": "Waterfront",
+          "label": "Waterfront"
+        },
+        {
+          "key": "Impress",
+          "label": "Impress a client"
+        }
+      ],
+      "tagLabels": {
+        "Drinks": "Drinks",
+        "Quick": "Quick bite",
+        "Group": "Group-friendly",
+        "Private": "Private dining",
+        "Waterfront": "Waterfront",
+        "Impress": "Impress a client",
+        "Breakfast": "Breakfast & coffee",
+        "Date": "Date-worthy",
+        "Late": "Late night",
+        "Brunch": "Brunch",
+        "Lunch": "Lunch",
+        "Casual": "Casual",
+        "Family": "Family-friendly"
+      },
+      "collections": [
+        {
+          "key": "seasonal",
+          "label": "Seasonal picks",
+          "icon": "ti-sun",
+          "ids": [
+            "island-creek-rawbar",
+            "cisco-seaport"
+          ]
+        },
+        {
+          "key": "impress",
+          "label": "Impress a client",
+          "icon": "ti-diamond",
+          "ids": [
+            "ocean-prime",
+            "mooo",
+            "maple-ash",
+            "davios",
+            "woods-hill"
+          ]
+        },
+        {
+          "key": "lunch",
+          "label": "Quick team lunch",
+          "icon": "ti-clock",
+          "ids": [
+            "high-street-place",
+            "flour",
+            "boqueria",
+            "row34",
+            "yankee-lobster"
+          ]
+        },
+        {
+          "key": "drinks",
+          "label": "Drinks after work",
+          "icon": "ti-glass",
+          "ids": [
+            "trillium",
+            "harpoon",
+            "envoy-rooftop",
+            "luckys",
+            "committee",
+            "mr-h"
+          ]
+        },
+        {
+          "key": "date",
+          "label": "Date-worthy",
+          "icon": "ti-heart",
+          "ids": [
+            "maple-ash",
+            "savr",
+            "coquette",
+            "bar-mezzana",
+            "block-woods-hill",
+            "nautilus"
+          ]
+        },
+        {
+          "key": "steps",
+          "label": "Steps away",
+          "icon": "ti-walk",
+          "maxWalk": 7
+        }
+      ],
+      "items": [
+        {
+          "id": "ocean-prime",
+          "name": "Ocean Prime",
+          "cat": "seafood",
+          "kind": "Seafood & steakhouse",
+          "price": "$$$$",
+          "phone": "(617) 670-1345",
+          "website": "https://ocean-prime.com/locations-menus/boston/",
+          "hours": "Mon–Fri 11:30am–10pm; Sat 4–10pm; Sun 4–9pm",
+          "address": "140 Seaport Blvd, Boston, MA 02210",
+          "lat": 42.34971,
+          "lng": -71.04089,
+          "tags": [
+            "Private",
+            "Waterfront",
+            "Impress",
+            "Drinks"
+          ],
+          "blurb": "Polished surf-and-turf — seafood, prime steaks and classic cocktails with Seaport Boulevard water views."
+        },
+        {
+          "id": "bar-mezzana",
+          "name": "Bar Mezzana",
+          "cat": "italian",
+          "kind": "Coastal Italian",
+          "price": "$$$",
+          "phone": "(617) 530-1770",
+          "website": "https://www.barmezzana.com",
+          "hours": "Dinner nightly; brunch Sat–Sun",
+          "address": "360 Harrison Ave, Boston, MA 02118",
+          "lat": 42.34459,
+          "lng": -71.06351,
+          "tags": [
+            "Date",
+            "Brunch"
+          ],
+          "blurb": "Coastal Italian in the South End — fresh crudo, homemade pasta and a standout wine list."
+        },
+        {
+          "id": "nebo",
+          "name": "Nebo Cucina & Enoteca",
+          "cat": "italian",
+          "kind": "Italian",
+          "price": "$$",
+          "phone": "(617) 723-6326",
+          "website": "https://www.neborestaurant.com",
+          "hours": "Lunch & dinner Mon–Sat; closed Sun",
+          "address": "520 Atlantic Ave, Boston, MA 02210",
+          "lat": 42.35379,
+          "lng": -71.05282,
+          "tags": [
+            "Group",
+            "Private",
+            "Family",
+            "Lunch"
+          ],
+          "blurb": "Open, casual Italian — pizza, pasta and seafood; great for big groups or bellying up to the bar."
+        },
+        {
+          "id": "committee",
+          "name": "Committee",
+          "cat": "med",
+          "kind": "Greek / Mediterranean",
+          "price": "$$$",
+          "phone": "(617) 737-5051",
+          "website": "https://committeeboston.com",
+          "hours": "Dinner nightly to late; lunch Mon–Fri; brunch Sat–Sun",
+          "address": "50 Northern Ave, Boston, MA 02210",
+          "lat": 42.35359,
+          "lng": -71.04618,
+          "tags": [
+            "Drinks",
+            "Waterfront",
+            "Group",
+            "Brunch",
+            "Late"
+          ],
+          "blurb": "Lively harborside Greek meze, shareable plates and creative cocktails."
+        },
+        {
+          "id": "high-street-place",
+          "name": "High Street Place",
+          "cat": "casual",
+          "kind": "Food hall",
+          "price": "$$",
+          "phone": "",
+          "website": "https://www.highstreetplace.com",
+          "hours": "Mon–Sat 7am–late; closed Sun",
+          "address": "100 High St, Boston, MA 02110",
+          "lat": 42.35444,
+          "lng": -71.05561,
+          "tags": [
+            "Quick",
+            "Group",
+            "Lunch",
+            "Casual"
+          ],
+          "blurb": "Downtown food hall with 20+ vendors under one roof — fast, flexible, something for everyone."
+        },
+        {
+          "id": "row34",
+          "name": "Row 34",
+          "cat": "seafood",
+          "kind": "Seafood & raw bar",
+          "price": "$$$",
+          "phone": "(617) 553-5900",
+          "website": "https://www.row34.com/location/row34-seaport/",
+          "hours": "Lunch & dinner daily",
+          "address": "383 Congress St, Boston, MA 02210",
+          "lat": 42.34959,
+          "lng": -71.04749,
+          "tags": [
+            "Drinks",
+            "Private",
+            "Lunch"
+          ],
+          "blurb": "Classic New England raw bar and a funky craft-beer program — the closest serious sit-down to the EBC."
+        },
+        {
+          "id": "mooo",
+          "name": "Mooo....",
+          "cat": "steak",
+          "kind": "Steakhouse",
+          "price": "$$$$",
+          "phone": "(617) 556-8000",
+          "website": "https://mooorestaurant.com/mooo-seaport/",
+          "hours": "Dinner nightly",
+          "address": "49 Melcher St, Boston, MA 02210",
+          "lat": 42.34945,
+          "lng": -71.05034,
+          "tags": [
+            "Impress",
+            "Private",
+            "Date"
+          ],
+          "blurb": "Modern steakhouse a one-minute walk from the EBC — prime cuts and an award-winning wine list."
+        },
+        {
+          "id": "boqueria",
+          "name": "Boqueria",
+          "cat": "med",
+          "kind": "Spanish tapas",
+          "price": "$$$",
+          "phone": "(857) 491-0857",
+          "website": "https://boqueriarestaurant.com/location/bos-seaport/",
+          "hours": "Lunch & dinner daily; late-night weekends",
+          "address": "25 Thomson Pl, Boston, MA 02210",
+          "lat": 42.35097,
+          "lng": -71.0473,
+          "tags": [
+            "Group",
+            "Drinks",
+            "Late",
+            "Lunch"
+          ],
+          "blurb": "Barcelona-style tapas, Spanish wines and craft cocktails; late-night bites on weekends."
+        },
+        {
+          "id": "woods-hill",
+          "name": "Woods Hill Pier 4",
+          "cat": "seafood",
+          "kind": "Farm-to-table / seafood",
+          "price": "$$$$",
+          "michelin": "selected",
+          "phone": "(617) 981-4577",
+          "website": "https://www.woodshillpier4.com/",
+          "hours": "Dinner nightly; brunch Sat–Sun",
+          "address": "300 Pier 4 Blvd, Boston, MA 02210",
+          "lat": 42.35291,
+          "lng": -71.04192,
+          "tags": [
+            "Waterfront",
+            "Private",
+            "Date",
+            "Impress"
+          ],
+          "blurb": "Farm-to-table, sustainably sourced New American on the water at Pier 4."
+        },
+        {
+          "id": "nautilus",
+          "name": "The Nautilus Pier 4",
+          "cat": "seafood",
+          "kind": "Pan-Asian & seafood",
+          "price": "$$$",
+          "phone": "(857) 957-0998",
+          "website": "https://www.thenautilus.com/pages/pier-4",
+          "hours": "Dinner nightly; bar to midnight; lunch Sat–Sun",
+          "address": "300 Pier 4 Blvd, Boston, MA 02210",
+          "lat": 42.35279,
+          "lng": -71.04172,
+          "tags": [
+            "Waterfront",
+            "Drinks",
+            "Late",
+            "Date"
+          ],
+          "blurb": "New England coastal cuisine meets Asian street food — a shared-plates, late-night vibe on the harbor."
+        },
+        {
+          "id": "davios",
+          "name": "Davio's Seaport",
+          "cat": "steak",
+          "kind": "Northern Italian steakhouse",
+          "price": "$$$$",
+          "phone": "(617) 261-4810",
+          "website": "https://davios.com/seaport",
+          "hours": "Lunch Mon–Fri; dinner nightly; brunch Sat–Sun",
+          "address": "26 Fan Pier Blvd, Boston, MA 02210",
+          "lat": 42.35435,
+          "lng": -71.04418,
+          "tags": [
+            "Waterfront",
+            "Private",
+            "Impress"
+          ],
+          "blurb": "Northern Italian steakhouse — aged steaks and handmade pasta on Fan Pier."
+        },
+        {
+          "id": "coquette",
+          "name": "Coquette",
+          "cat": "med",
+          "kind": "Coastal Mediterranean",
+          "price": "$$$",
+          "phone": "(617) 882-0090",
+          "website": "https://www.coquetteboston.com",
+          "hours": "Dinner nightly from 5pm; bar late",
+          "address": "450 Summer St, Boston, MA 02210",
+          "lat": 42.34705,
+          "lng": -71.04216,
+          "tags": [
+            "Waterfront",
+            "Drinks",
+            "Date"
+          ],
+          "blurb": "Mediterranean raw bar and Capri-style pizzas inside the Omni Boston Hotel at the Seaport."
+        },
+        {
+          "id": "trillium",
+          "name": "Trillium Brewing — Fort Point",
+          "cat": "bar",
+          "kind": "Brewery & restaurant",
+          "price": "$$",
+          "phone": "(857) 449-0083",
+          "website": "https://trilliumbrewing.com/pages/fort-point",
+          "hours": "Daily; kitchen closes ~1hr before taproom",
+          "address": "50 Thomson Pl, Boston, MA 02210",
+          "lat": 42.35204,
+          "lng": -71.04718,
+          "tags": [
+            "Drinks",
+            "Group",
+            "Casual",
+            "Lunch"
+          ],
+          "blurb": "Fort Point taproom and full restaurant from Boston's favorite craft brewery.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "harpoon",
+          "name": "Harpoon Brewery & Beer Hall",
+          "cat": "bar",
+          "kind": "Brewery & beer hall",
+          "price": "$$",
+          "phone": "(617) 456-2322",
+          "website": "https://harpoonbrewery.com/boston-brewery/",
+          "hours": "Wed–Sun; closed Tue (varies seasonally)",
+          "address": "306 Northern Ave, Boston, MA 02210",
+          "lat": 42.34718,
+          "lng": -71.0341,
+          "tags": [
+            "Drinks",
+            "Group",
+            "Waterfront",
+            "Casual"
+          ],
+          "blurb": "Iconic Boston brewery and beer hall — fresh-pulled pretzels and a huge beer list.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "barking-crab",
+          "name": "The Barking Crab",
+          "cat": "seafood",
+          "kind": "Casual seafood",
+          "price": "$$",
+          "phone": "(617) 426-2722",
+          "website": "https://barkingcrab.com",
+          "hours": "Daily noon–9/10pm",
+          "address": "88 Sleeper St, Boston, MA 02210",
+          "lat": 42.35377,
+          "lng": -71.04866,
+          "tags": [
+            "Waterfront",
+            "Casual",
+            "Group",
+            "Lunch"
+          ],
+          "blurb": "Festive, tented harborside clam shack on Fort Point Channel — quintessentially Boston.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "legal-harborside",
+          "name": "Legal Harborside",
+          "cat": "seafood",
+          "kind": "Seafood",
+          "price": "$$$",
+          "phone": "(617) 477-2900",
+          "website": "https://www.legalseafoods.com/locations/boston-harborside/",
+          "hours": "Daily 11am–10/11pm",
+          "address": "270 Northern Ave, Boston, MA 02210",
+          "lat": 42.34867,
+          "lng": -71.03777,
+          "tags": [
+            "Waterfront",
+            "Drinks",
+            "Group",
+            "Lunch",
+            "Impress"
+          ],
+          "blurb": "Legal Sea Foods' three-floor flagship at Liberty Wharf, with a retractable-roof rooftop bar.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "flour",
+          "name": "Flour Bakery + Café",
+          "cat": "bakery",
+          "kind": "Bakery & café",
+          "price": "$$",
+          "phone": "(617) 338-4333",
+          "website": "https://www.flourbakery.com/",
+          "hours": "Mon–Fri 7am–7pm; Sat–Sun 8am–6pm",
+          "address": "12 Farnsworth St, Boston, MA 02210",
+          "lat": 42.35141,
+          "lng": -71.04881,
+          "tags": [
+            "Breakfast",
+            "Quick",
+            "Lunch",
+            "Casual"
+          ],
+          "blurb": "Joanne Chang's beloved original bakery — pastries, sandwiches and great coffee.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "envoy-rooftop",
+          "name": "Rooftop at The Envoy",
+          "cat": "bar",
+          "kind": "Rooftop bar",
+          "price": "$$$",
+          "phone": "(617) 530-1538",
+          "website": "https://www.envoyrooftop.com/",
+          "hours": "Daily ~11am–11:30pm (seasonal; winter igloos)",
+          "address": "70 Sleeper St, Boston, MA 02210",
+          "lat": 42.35388,
+          "lng": -71.04826,
+          "tags": [
+            "Drinks",
+            "Waterfront",
+            "Date",
+            "Late"
+          ],
+          "blurb": "Seaport rooftop with skyline and harbor views — heated igloos in winter, atop The Envoy Hotel.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "luckys",
+          "name": "Lucky's Lounge",
+          "cat": "bar",
+          "kind": "Lounge & live music",
+          "price": "$$",
+          "phone": "(617) 357-5825",
+          "website": "https://www.luckyslounge.com/",
+          "hours": "Daily to 2am",
+          "address": "355 Congress St, Boston, MA 02210",
+          "lat": 42.35004,
+          "lng": -71.04848,
+          "tags": [
+            "Drinks",
+            "Late",
+            "Casual"
+          ],
+          "blurb": "Retro Fort Point lounge with live music and Sinatra Sundays — find the unmarked basement door.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "yankee-lobster",
+          "name": "Yankee Lobster Co.",
+          "cat": "seafood",
+          "kind": "Casual seafood / fish market",
+          "price": "$$",
+          "phone": "(617) 345-9799",
+          "website": "https://yankeelobstercompany.com/",
+          "hours": "Daily 11am–7/8pm",
+          "address": "300 Northern Ave, Boston, MA 02210",
+          "lat": 42.34786,
+          "lng": -71.03603,
+          "tags": [
+            "Casual",
+            "Quick",
+            "Lunch",
+            "Waterfront"
+          ],
+          "blurb": "Family-run fish market and casual seafood counter — a no-frills local institution.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "maple-ash",
+          "name": "Maple & Ash",
+          "cat": "steak",
+          "kind": "Steakhouse & raw bar",
+          "price": "$$$$",
+          "phone": "(617) 362-8881",
+          "website": "https://www.mapleandash.com/boston/",
+          "hours": "Tue–Sat dinner; closed Sun–Mon",
+          "address": "131 Seaport Blvd, Boston, MA 02210",
+          "lat": 42.35175,
+          "lng": -71.04557,
+          "tags": [
+            "Impress",
+            "Date",
+            "Drinks"
+          ],
+          "blurb": "Glamorous wood-fired steakhouse and raw bar from chef Danny Grant — prime cuts, seafood towers and a buzzy cocktail scene.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "block-woods-hill",
+          "name": "The Block at Woods Hill",
+          "cat": "american",
+          "kind": "Farm-to-table small plates",
+          "price": "$$$",
+          "phone": "(617) 861-4268",
+          "website": "https://www.theblockatwoodshill.com/",
+          "hours": "Tue–Sat dinner; closed Sun–Mon (seasonal)",
+          "address": "300 Pier 4 Blvd, Ste 3, Boston, MA 02210",
+          "lat": 42.35301,
+          "lng": -71.0421,
+          "tags": [
+            "Waterfront",
+            "Date",
+            "Drinks"
+          ],
+          "blurb": "Woods Hill's farm-to-table small-plates and wine spot beside its Pier 4 flagship — same sustainable sourcing, more relaxed.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "savr",
+          "name": "SAVR",
+          "cat": "american",
+          "kind": "New American bistro",
+          "price": "$$$",
+          "phone": "(617) 553-7287",
+          "website": "https://savrtm.com/",
+          "hours": "Lunch & dinner daily (varies)",
+          "address": "150 Seaport Blvd, Boston, MA 02210",
+          "lat": 42.35086,
+          "lng": -71.04298,
+          "tags": [
+            "Waterfront",
+            "Drinks",
+            "Date"
+          ],
+          "blurb": "Spirited New American bistro at the St. Regis Residences — steaks, pasta and a raw bar across two waterfront decks.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "mr-h",
+          "name": "Mr. H",
+          "cat": "asian",
+          "kind": "Pan-Asian sushi lounge & cocktails",
+          "price": "$$$",
+          "phone": "(617) 458-8008",
+          "website": "https://www.meetmrh.com/",
+          "hours": "Daily from 5pm; to 1am Mon–Fri, 2am Sat–Sun",
+          "address": "225 Northern Ave, Boston, MA 02210",
+          "lat": 42.34848,
+          "lng": -71.03866,
+          "tags": [
+            "Drinks",
+            "Late",
+            "Date"
+          ],
+          "blurb": "Relaunched in July 2026 as a 1940s-Shanghai-style salon — sushi-led menu, a big cocktail program and a late-night DJ lounge in Park Lane Seaport (COJE, sister of Coquette and Lolita).",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "island-creek-rawbar",
+          "name": "Island Creek Raw Bar",
+          "cat": "seafood",
+          "kind": "Seasonal outdoor raw bar",
+          "price": "$$$",
+          "phone": "(781) 934-2028",
+          "website": "https://shop.islandcreekoysters.com/pages/island-creek-raw-bar-seaport",
+          "hours": "Seasonal (Apr–Oct); daily, weather-dependent",
+          "address": "99 Autumn Lane, Boston, MA 02210",
+          "lat": 42.35084,
+          "lng": -71.04595,
+          "tags": [
+            "Waterfront",
+            "Drinks",
+            "Date"
+          ],
+          "blurb": "Fully outdoor seasonal raw bar from Island Creek Oysters — just-shucked oysters, chilled seafood and cocktails on Harbor Way.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "cisco-seaport",
+          "name": "Cisco Brewers Seaport",
+          "cat": "bar",
+          "kind": "Seasonal beer garden",
+          "price": "$$",
+          "phone": "(508) 325-5929",
+          "website": "https://www.ciscobrewers.com/seaport",
+          "hours": "Seasonal (Apr–Oct); Tue–Sun, weather-dependent",
+          "address": "85 Northern Ave, Boston, MA 02210",
+          "lat": 42.35166,
+          "lng": -71.04397,
+          "tags": [
+            "Drinks",
+            "Group",
+            "Waterfront",
+            "Casual"
+          ],
+          "blurb": "Nantucket's Cisco Brewers' seasonal outdoor beer garden — a tented yard with live music, lawn games and reservable beach shacks.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "mastros-ocean-club",
+          "name": "Mastro's Ocean Club",
+          "cat": "steak",
+          "kind": "Steakhouse & seafood",
+          "price": "$$$$",
+          "phone": "(617) 530-1925",
+          "website": "https://www.mastrosrestaurants.com/location/mastros-ocean-club-boston/",
+          "hours": "Dinner nightly from 3–4pm",
+          "address": "25 Fan Pier Blvd, Boston, MA 02210",
+          "lat": 42.3539,
+          "lng": -71.04538,
+          "tags": [
+            "Impress",
+            "Waterfront",
+            "Date",
+            "Drinks"
+          ],
+          "blurb": "Glamorous Fan Pier steakhouse and seafood — prime cuts, towering shellfish and live music with harbor views.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "empire",
+          "name": "Empire",
+          "cat": "asian",
+          "kind": "Pan-Asian & lounge",
+          "price": "$$$",
+          "phone": "(617) 295-0001",
+          "website": "https://www.empireboston.com/",
+          "hours": "Daily from 5pm; late Thu–Sat",
+          "address": "1 Marina Park Dr, Boston, MA 02210",
+          "lat": 42.35321,
+          "lng": -71.04533,
+          "tags": [
+            "Drinks",
+            "Late",
+            "Group",
+            "Waterfront"
+          ],
+          "blurb": "Sprawling pan-Asian restaurant and DJ lounge on Fan Pier — sushi, dumplings and late-night energy.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "serafina-seaport",
+          "name": "Serafina Seaport",
+          "cat": "italian",
+          "kind": "Italian",
+          "price": "$$$",
+          "phone": "(617) 426-1234",
+          "website": "https://serafinaboston.com/locations/seaport/",
+          "hours": "Lunch & dinner daily; late weekends",
+          "address": "11 Fan Pier Blvd, Boston, MA 02210",
+          "lat": 42.35413,
+          "lng": -71.04571,
+          "tags": [
+            "Waterfront",
+            "Brunch",
+            "Group",
+            "Date"
+          ],
+          "blurb": "Waterfront Italian on Fan Pier — wood-fired pizzas, handmade pasta and a harbor-view patio.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "tuscan-kitchen",
+          "name": "Tuscan Kitchen Seaport",
+          "cat": "italian",
+          "kind": "Tuscan Italian",
+          "price": "$$$",
+          "phone": "(617) 303-7300",
+          "website": "https://www.tuscankitchen.com/location/tuscan-kitchen-seaport/",
+          "hours": "Dinner nightly; lunch Fri–Sun",
+          "address": "64 Seaport Blvd, Boston, MA 02210",
+          "lat": 42.3516,
+          "lng": -71.0444,
+          "tags": [
+            "Group",
+            "Date",
+            "Brunch"
+          ],
+          "blurb": "Rustic Tuscan cooking with house-made pasta and 300+ wines, plus the ground-floor Bar Toscana.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "lakon-paris",
+          "name": "Lakon Paris Patisserie",
+          "cat": "bakery",
+          "kind": "French patisserie & café",
+          "price": "$$",
+          "phone": "",
+          "website": "https://lakonparis.com/",
+          "hours": "Mon–Thu 7am–6pm; Fri 7am–8pm; Sat–Sun 8am–8pm",
+          "address": "113 Autumn Lane, Boston, MA 02210",
+          "lat": 42.35038,
+          "lng": -71.04492,
+          "tags": [
+            "Breakfast",
+            "Quick",
+            "Casual"
+          ],
+          "blurb": "French patisserie and café on the Seaport's Autumn Lane — croissants, viennoiserie and espresso.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "blue-bottle",
+          "name": "Blue Bottle Coffee",
+          "cat": "bakery",
+          "kind": "Specialty coffee",
+          "price": "$$",
+          "phone": "",
+          "website": "https://bluebottlecoffee.com/us/eng/cafes/seaport",
+          "hours": "Daily ~7am–6pm",
+          "address": "113 Autumn Lane, Boston, MA 02210",
+          "lat": 42.3503,
+          "lng": -71.0448,
+          "tags": [
+            "Breakfast",
+            "Quick",
+            "Casual"
+          ],
+          "blurb": "Minimalist specialty-coffee café in the Seaport — single-origin pour-overs, espresso and pastries.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "elephantine",
+          "name": "Elephantine Bakery",
+          "cat": "bakery",
+          "kind": "Bakery & café",
+          "price": "$$",
+          "phone": "(857) 449-6059",
+          "website": "https://www.elephantinebakery.com/",
+          "hours": "Daily ~8am–3pm",
+          "address": "332 Congress St, Boston, MA 02210",
+          "lat": 42.35111,
+          "lng": -71.04913,
+          "tags": [
+            "Breakfast",
+            "Quick",
+            "Lunch",
+            "Casual"
+          ],
+          "blurb": "European-style bakery and café in Fort Point — pastries, fresh bread and a light lunch menu.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "smith-wollensky",
+          "name": "Smith & Wollensky",
+          "cat": "steak",
+          "kind": "Steakhouse",
+          "price": "$$$$",
+          "phone": "(617) 778-2200",
+          "website": "https://www.smithandwollensky.com/locations/boston/",
+          "hours": "Daily 11:30am–10/11pm",
+          "address": "294 Congress St, Boston, MA 02210",
+          "lat": 42.3529,
+          "lng": -71.0525,
+          "tags": [
+            "Impress",
+            "Private",
+            "Date",
+            "Drinks"
+          ],
+          "blurb": "Classic American steakhouse at Atlantic Wharf on Fort Point Channel — dry-aged beef and a clubby bar.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "abe-louies",
+          "name": "Abe & Louie's",
+          "cat": "steak",
+          "kind": "Steakhouse",
+          "price": "$$$$",
+          "phone": "(617) 536-6300",
+          "website": "https://abeandlouies.com/",
+          "hours": "Daily 11am–10/11pm",
+          "address": "793 Boylston St, Boston, MA 02116",
+          "lat": 42.34915,
+          "lng": -71.08155,
+          "tags": [
+            "Impress",
+            "Date",
+            "Drinks"
+          ],
+          "blurb": "Back Bay steakhouse institution across from the Boston Public Library — prime steaks and a power-lunch scene.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "vermilion-club",
+          "name": "The Vermilion Club",
+          "cat": "steak",
+          "kind": "Modern steakhouse",
+          "price": "$$$$",
+          "phone": "(617) 546-5123",
+          "website": "https://www.vermilion-club.com/",
+          "hours": "Lunch Mon–Fri; dinner Mon–Sat; closed Sun",
+          "address": "115 Federal St, Boston, MA 02110",
+          "lat": 42.35488,
+          "lng": -71.05644,
+          "tags": [
+            "Impress",
+            "Date",
+            "Drinks"
+          ],
+          "blurb": "Chef John Fraser's contemporary steakhouse at Winthrop Center — refined cuts and cocktails downtown.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "del-friscos",
+          "name": "Del Frisco's Double Eagle Steakhouse",
+          "cat": "steak",
+          "kind": "Steakhouse",
+          "price": "$$$$",
+          "phone": "(617) 951-1368",
+          "website": "https://www.delfriscos.com/location/del-friscos-double-eagle-steakhouse-boston-seaport-ma/",
+          "hours": "Dinner nightly; hours vary",
+          "address": "250 Northern Ave, Boston, MA 02210",
+          "lat": 42.34875,
+          "lng": -71.03812,
+          "tags": [
+            "Impress",
+            "Private",
+            "Waterfront",
+            "Date",
+            "Drinks"
+          ],
+          "blurb": "Grand waterfront steakhouse in the Seaport — prime steaks, seafood towers and an extensive wine list.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "grill-23",
+          "name": "Grill 23 & Bar",
+          "cat": "steak",
+          "kind": "Steakhouse",
+          "price": "$$$$",
+          "phone": "(617) 542-2255",
+          "website": "https://www.grill23.com/",
+          "hours": "Dinner nightly from 5pm",
+          "address": "161 Berkeley St, Boston, MA 02116",
+          "lat": 42.34937,
+          "lng": -71.07205,
+          "tags": [
+            "Impress",
+            "Date",
+            "Drinks"
+          ],
+          "blurb": "Long-running Back Bay steakhouse in a grand former bank hall — prime beef and a serious wine cellar.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "table-northend",
+          "name": "TABLE by Jen Royle",
+          "cat": "italian",
+          "kind": "Family-style Italian (prix fixe)",
+          "price": "$$$$",
+          "phone": "(617) 543-9848",
+          "website": "https://www.tableboston.com/",
+          "hours": "Dinner Wed–Sat; Sunday Supper; closed Mon–Tue",
+          "address": "445 Hanover St, Boston, MA 02113",
+          "lat": 42.36573,
+          "lng": -71.05316,
+          "tags": [
+            "Group",
+            "Impress",
+            "Date",
+            "Family"
+          ],
+          "blurb": "Chef Jen Royle seats everyone together at communal tables for a multi-course, family-style Italian prix-fixe feast in the North End.",
+          "addedOn": "2026-06-18"
+        },
+        {
+          "id": "little-sage",
+          "name": "Little Sage",
+          "cat": "italian",
+          "kind": "Italian",
+          "price": "$$$",
+          "phone": "(617) 742-9600",
+          "website": "https://www.littlesageboston.com/",
+          "hours": "Daily from 4pm; Sat–Sun from noon",
+          "address": "352 Hanover St, Boston, MA 02113",
+          "lat": 42.36487,
+          "lng": -71.05399,
+          "tags": [
+            "Date",
+            "Casual",
+            "Lunch"
+          ],
+          "blurb": "Chef Tony Susi's intimate North End spot for handcrafted pastas and oven-roasted Italian dishes — a revival of his 1990s restaurant Sage.",
+          "addedOn": "2026-06-18"
+        },
+        {
+          "id": "neptune-oyster",
+          "name": "Neptune Oyster",
+          "cat": "seafood",
+          "kind": "Seafood & raw bar",
+          "price": "$$$",
+          "michelin": "selected",
+          "phone": "(617) 742-3474",
+          "website": "https://www.neptuneoyster.com/",
+          "hours": "Daily from 11am; walk-ins only, no reservations",
+          "address": "63 Salem St, Boston, MA 02113",
+          "lat": 42.36325,
+          "lng": -71.05599,
+          "tags": [
+            "Date",
+            "Impress",
+            "Lunch",
+            "Casual"
+          ],
+          "blurb": "Tiny, beloved North End raw bar famous for its hot-buttered lobster roll and pristine oysters — expect a wait, no reservations.",
+          "addedOn": "2026-06-18"
+        },
+        {
+          "id": "regina-pizzeria",
+          "name": "Regina Pizzeria",
+          "cat": "italian",
+          "kind": "Brick-oven pizza",
+          "price": "$$",
+          "phone": "(617) 227-0765",
+          "website": "https://reginapizzeria.com/north_end.html",
+          "hours": "Mon–Sat 11am–10pm; Sun 11am–9pm",
+          "address": "11 1/2 Thacher St, Boston, MA 02113",
+          "lat": 42.36543,
+          "lng": -71.05688,
+          "tags": [
+            "Casual",
+            "Family",
+            "Group",
+            "Lunch"
+          ],
+          "blurb": "The original 1926 North End brick-oven pizzeria on a tiny side street — often cited as Boston's most famous pizza, and worth the line.",
+          "addedOn": "2026-06-18"
+        },
+        {
+          "id": "sunny-girl",
+          "name": "Sunny Girl",
+          "cat": "bakery",
+          "kind": "Breakfast & brunch café",
+          "price": "$$",
+          "phone": "(857) 277-0356",
+          "website": "https://www.sunnygirlboston.com/",
+          "hours": "Mon–Fri 7am–2pm; Sat–Sun 7am–4pm",
+          "address": "252 Commercial St, Boston, MA 02109",
+          "lat": 42.36395,
+          "lng": -71.05129,
+          "tags": [
+            "Breakfast",
+            "Brunch",
+            "Quick",
+            "Casual"
+          ],
+          "blurb": "Chef-driven North End café beloved for inventive breakfast sandwiches on house-made English muffins.",
+          "addedOn": "2026-06-18"
+        },
+        {
+          "id": "galleria-umberto",
+          "name": "Galleria Umberto",
+          "cat": "italian",
+          "kind": "Sicilian lunch counter",
+          "price": "$",
+          "phone": "(617) 227-5709",
+          "website": "",
+          "hours": "Mon–Sat 11am–2:30pm (lunch & cash only; closes when sold out); closed Sun",
+          "address": "289 Hanover St, Boston, MA 02113",
+          "lat": 42.36382,
+          "lng": -71.0543,
+          "tags": [
+            "Lunch",
+            "Quick",
+            "Casual",
+            "Family"
+          ],
+          "blurb": "Legendary cash-only, lunch-only counter slinging thick Sicilian squares and arancini for a few dollars until it sells out — a James Beard 'America's Classic'.",
+          "addedOn": "2026-06-18"
+        },
+        {
+          "id": "red-fox",
+          "name": "The Red Fox",
+          "cat": "bar",
+          "kind": "Italian & martini bar",
+          "price": "$$$",
+          "phone": "(617) 693-6003",
+          "website": "https://www.redfoxnorthend.com/",
+          "hours": "Daily 5pm–11pm",
+          "address": "326 Commercial St, Boston, MA 02113",
+          "lat": 42.36648,
+          "lng": -71.05178,
+          "tags": [
+            "Drinks",
+            "Date",
+            "Late",
+            "Impress"
+          ],
+          "blurb": "A dim, sultry North End spot for handmade pasta and nostalgic martinis — with the hidden Extra Dirty Cocktail Club behind a curtain in back.",
+          "addedOn": "2026-06-18"
+        },
+        {
+          "id": "parla",
+          "name": "Parla",
+          "cat": "bar",
+          "kind": "Cocktail bar & Italian small plates",
+          "price": "$$$",
+          "phone": "(617) 367-2824",
+          "website": "https://www.parlaboston.com/",
+          "hours": "Daily to midnight; dinner from 4:30pm; weekend brunch",
+          "address": "230 Hanover St, Boston, MA 02113",
+          "lat": 42.36452,
+          "lng": -71.05448,
+          "tags": [
+            "Drinks",
+            "Date",
+            "Late",
+            "Brunch"
+          ],
+          "blurb": "Intimate, speakeasy-style den of inventive cocktails and modern Italian small plates on Hanover Street.",
+          "addedOn": "2026-06-18"
+        },
+        {
+          "id": "farmacia",
+          "name": "Farmacia",
+          "cat": "bar",
+          "kind": "Apothecary cocktail experience",
+          "price": "$$$$",
+          "phone": "",
+          "website": "https://www.farmacianorthend.com/",
+          "hours": "Wed–Sat 5pm–midnight; reservations only",
+          "address": "5 North Square, Boston, MA 02113",
+          "lat": 42.36383,
+          "lng": -71.05368,
+          "tags": [
+            "Drinks",
+            "Date",
+            "Impress",
+            "Private"
+          ],
+          "blurb": "A nine-seat, apothecary-inspired bar serving a ticketed, multi-cocktail tasting 'experience' — book well ahead.",
+          "addedOn": "2026-06-18"
+        },
+        {
+          "id": "extra-dirty",
+          "name": "Extra Dirty Cocktail Club",
+          "cat": "bar",
+          "kind": "Hidden cocktail bar",
+          "price": "$$$",
+          "phone": "",
+          "website": "https://www.extradirtynorthend.com/",
+          "hours": "Wed–Sat 5pm–11:30pm; closed Sun–Tue",
+          "address": "326B Commercial St, Boston, MA 02113",
+          "lat": 42.36655,
+          "lng": -71.0517,
+          "tags": [
+            "Drinks",
+            "Date",
+            "Late",
+            "Private"
+          ],
+          "blurb": "A 20-seat hidden cocktail bar tucked behind a curtain at the back of The Red Fox — theatrical, award-winning mixology (Boston Magazine's Best New Bar, 2025).",
+          "addedOn": "2026-06-18"
+        },
+        {
+          "id": "hawksmoor",
+          "name": "Hawksmoor Boston",
+          "cat": "steak",
+          "kind": "British charcoal-grill steakhouse",
+          "price": "$$$$",
+          "phone": "(781) 208-8300",
+          "website": "https://thehawksmoor.com/us/locations/boston/",
+          "hours": "Mon from 5pm; Tue–Sat from noon; Sun roast from 11:45am",
+          "address": "15 Necco St, Boston, MA 02210",
+          "lat": 42.34908,
+          "lng": -71.05156,
+          "tags": [
+            "Impress",
+            "Private",
+            "Waterfront",
+            "Drinks",
+            "Group",
+            "Date",
+            "Lunch"
+          ],
+          "blurb": "London's celebrated charcoal-grill steakhouse, newly opened (September 2026) on the Fort Point Channel — literally steps from the EBC — with sub-zero martinis, a waterfront terrace, British Sunday roasts and two private dining rooms.",
+          "addedOn": "2026-09-07"
+        },
+        {
+          "id": "fox-the-knife",
+          "name": "Fox & the Knife",
+          "cat": "italian",
+          "kind": "Modena-style Italian enoteca",
+          "price": "$$$",
+          "michelin": "bib",
+          "phone": "(617) 766-8630",
+          "website": "https://www.foxandtheknife.com/",
+          "hours": "Dinner nightly from 4:30pm",
+          "address": "28 W Broadway, Boston, MA 02127",
+          "lat": 42.34266,
+          "lng": -71.05655,
+          "tags": [
+            "Date",
+            "Drinks",
+            "Impress",
+            "Group"
+          ],
+          "blurb": "Karen Akunowicz's Modena-inspired enoteca in South Boston — handmade pastas, aperitivo spritzes and a deep Italian wine and amaro list.",
+          "addedOn": "2026-09-09"
+        },
+        {
+          "id": "bar-volpe",
+          "name": "Bar Volpe",
+          "cat": "italian",
+          "kind": "Southern Italian & pastificio",
+          "price": "$$$",
+          "michelin": "bib",
+          "phone": "(617) 865-7100",
+          "website": "https://www.barvolpe.com/",
+          "hours": "Dinner nightly 5–10pm; aperitivo hour 4–5pm",
+          "address": "170 W Broadway, Boston, MA 02127",
+          "lat": 42.34041,
+          "lng": -71.05304,
+          "tags": [
+            "Drinks",
+            "Private",
+            "Group",
+            "Date"
+          ],
+          "blurb": "Karen Akunowicz's Southern Italian follow-up to Fox & the Knife — house-made pastas, wood-fired seafood, two bars with a deep amaro list, and a pastificio selling fresh pasta to go.",
+          "addedOn": "2026-09-09"
+        },
+        {
+          "id": "somaek",
+          "name": "Somaek",
+          "cat": "asian",
+          "kind": "Homestyle Korean & soju",
+          "price": "$$$",
+          "michelin": "selected",
+          "phone": "(857) 449-9003",
+          "website": "https://www.somaek.com/",
+          "hours": "Mon–Thu 5–10pm; Fri–Sat 5–10:30pm; closed Sun",
+          "address": "11 Temple Pl, Boston, MA 02111",
+          "lat": 42.3553,
+          "lng": -71.0625,
+          "tags": [
+            "Drinks",
+            "Date",
+            "Impress"
+          ],
+          "blurb": "Jamie Bissonnette's homestyle Korean spot in Downtown Crossing — banchan, seafood pajeon, galbi and a soju-and-makgeolli bar — on the NYT 2024 list of the 50 best US restaurants.",
+          "addedOn": "2026-09-09"
+        },
+        {
+          "id": "mooncusser",
+          "name": "Mooncusser",
+          "cat": "seafood",
+          "kind": "Seafood tasting menu",
+          "price": "$$$$",
+          "michelin": "selected",
+          "phone": "(617) 917-5193",
+          "website": "https://www.mooncusserboston.com/",
+          "hours": "Tasting menu Tue–Sat 5–9pm; Moon Bar downstairs till late; closed Sun–Mon",
+          "address": "304 Stuart St, Boston, MA 02116",
+          "lat": 42.34984,
+          "lng": -71.0708,
+          "tags": [
+            "Impress",
+            "Date",
+            "Drinks"
+          ],
+          "blurb": "Chef Carl Dooley's globally inspired, seafood-focused tasting menu upstairs in Back Bay, with the casual Moon Bar downstairs for à la carte plates and cocktails.",
+          "addedOn": "2026-09-09"
+        }
+      ]
+    },
+    "activities": {
+      "label": "Activities",
+      "icon": "ti-ticket",
+      "catLabel": "Type",
+      "hasPrice": false,
+      "siteLabel": "Tickets & info",
+      "categories": {
+        "arts": {
+          "label": "Arts & museums",
+          "color": "#cf4f7a"
+        },
+        "science": {
+          "label": "Science & wildlife",
+          "color": "#188f68"
+        },
+        "history": {
+          "label": "History & landmarks",
+          "color": "#b5710f"
+        },
+        "games": {
+          "label": "Games & fun",
+          "color": "#7268d6"
+        },
+        "sports": {
+          "label": "Sports",
+          "color": "#2f7ed8"
+        },
+        "shopping": {
+          "label": "Shopping & strolls",
+          "color": "#5f9020"
+        }
+      },
+      "intents": [
+        {
+          "key": "walkable",
+          "label": "Walkable",
+          "computed": true
+        },
+        {
+          "key": "Family",
+          "label": "Family-friendly"
+        },
+        {
+          "key": "Indoor",
+          "label": "Indoor"
+        },
+        {
+          "key": "Outdoor",
+          "label": "Outdoor"
+        },
+        {
+          "key": "Group",
+          "label": "Group outing"
+        },
+        {
+          "key": "Iconic",
+          "label": "Iconic Boston"
+        }
+      ],
+      "tagLabels": {
+        "Family": "Family-friendly",
+        "Indoor": "Indoor",
+        "Outdoor": "Outdoor",
+        "Group": "Group outing",
+        "Iconic": "Iconic Boston",
+        "Evening": "Evening",
+        "Date": "Date-worthy"
+      },
+      "collections": [
+        {
+          "key": "rainy",
+          "label": "Rainy-day picks",
+          "icon": "ti-cloud-rain",
+          "ids": [
+            "act-ica",
+            "act-teaparty",
+            "act-aquarium",
+            "act-mos",
+            "act-mfa",
+            "act-gardner",
+            "act-spin",
+            "act-flightclub",
+            "act-puttshack"
+          ]
+        },
+        {
+          "key": "iconic",
+          "label": "Iconic must-sees",
+          "icon": "ti-star",
+          "ids": [
+            "act-aquarium",
+            "act-fenway",
+            "act-freedomtrail",
+            "act-quincy",
+            "act-teaparty",
+            "act-mfa"
+          ]
+        },
+        {
+          "key": "family",
+          "label": "With the family",
+          "icon": "ti-users",
+          "ids": [
+            "act-aquarium",
+            "act-mos",
+            "act-teaparty",
+            "act-puttshack",
+            "act-quincy"
+          ]
+        },
+        {
+          "key": "nearby",
+          "label": "Near the EBC",
+          "icon": "ti-walk",
+          "maxWalk": 12
+        }
+      ],
+      "items": [
+        {
+          "id": "act-ica",
+          "name": "Institute of Contemporary Art",
+          "cat": "arts",
+          "kind": "Contemporary art museum",
+          "phone": "(617) 478-3100",
+          "website": "https://www.icaboston.org",
+          "hours": "Tue–Sun 10am–5pm (Thu–Fri to 9pm); closed Mon",
+          "address": "25 Harbor Shore Dr, Boston, MA 02210",
+          "lat": 42.35287,
+          "lng": -71.04296,
+          "tags": [
+            "Indoor",
+            "Iconic",
+            "Date"
+          ],
+          "blurb": "Cutting-edge contemporary art on the Seaport waterfront — painting, sculpture, film and photography."
+        },
+        {
+          "id": "act-flightclub",
+          "name": "Flight Club Boston",
+          "cat": "games",
+          "kind": "Social darts & bar",
+          "phone": "(617) 855-9888",
+          "website": "https://www.flightclubdartsusa.com/boston",
+          "hours": "Daily; eves to late (varies)",
+          "address": "60 Seaport Blvd, Suite 215, Boston, MA 02210",
+          "lat": 42.35293,
+          "lng": -71.04698,
+          "tags": [
+            "Group",
+            "Indoor",
+            "Evening"
+          ],
+          "blurb": "Upscale social darts with elevated food and cocktails — tech-tracked games for rookies and pros alike."
+        },
+        {
+          "id": "act-teaparty",
+          "name": "Boston Tea Party Ships & Museum",
+          "cat": "history",
+          "kind": "Living-history museum",
+          "phone": "(617) 531-6200",
+          "website": "https://www.bostonteapartyship.com",
+          "hours": "Daily 10am–5pm",
+          "address": "306 Congress St, Boston, MA 02210",
+          "lat": 42.3522,
+          "lng": -71.0513,
+          "tags": [
+            "Family",
+            "Indoor",
+            "Iconic"
+          ],
+          "blurb": "Live-guided, interactive retelling of the 1773 revolt aboard restored tall ships — throw the tea overboard."
+        },
+        {
+          "id": "act-spin",
+          "name": "SPIN Boston",
+          "cat": "games",
+          "kind": "Ping-pong social club",
+          "phone": "(617) 404-2272",
+          "website": "https://wearespin.com/location/boston",
+          "hours": "Tue–Sat afternoons to late; closed Sun–Mon",
+          "address": "30 Melcher St, Boston, MA 02210",
+          "lat": 42.34955,
+          "lng": -71.05003,
+          "tags": [
+            "Group",
+            "Indoor",
+            "Evening"
+          ],
+          "blurb": "20 ping-pong tables, a full bar and 15,000 sq ft of social energy — steps from the EBC."
+        },
+        {
+          "id": "act-aquarium",
+          "name": "New England Aquarium",
+          "cat": "science",
+          "kind": "Aquarium",
+          "phone": "(617) 973-5200",
+          "website": "https://www.neaq.org",
+          "hours": "Daily 9am–6pm (seasonal)",
+          "address": "1 Central Wharf, Boston, MA 02110",
+          "lat": 42.35917,
+          "lng": -71.04954,
+          "tags": [
+            "Family",
+            "Indoor",
+            "Iconic"
+          ],
+          "blurb": "Four-story Giant Ocean Tank, penguins, sharks and a touch tank — a global leader in marine conservation."
+        },
+        {
+          "id": "act-puttshack",
+          "name": "Puttshack Boston",
+          "cat": "games",
+          "kind": "Tech mini-golf & bar",
+          "phone": "(617) 295-7888",
+          "website": "https://www.puttshack.com/locations/boston",
+          "hours": "Daily 11am–11pm (later Fri–Sat)",
+          "address": "58 Pier 4 Blvd, Boston, MA 02210",
+          "lat": 42.34966,
+          "lng": -71.04469,
+          "tags": [
+            "Group",
+            "Indoor",
+            "Family"
+          ],
+          "blurb": "Tech-enabled mini golf with auto-scoring balls, shareable plates and craft cocktails near Pier 4."
+        },
+        {
+          "id": "act-jfk",
+          "name": "JFK Presidential Library & Museum",
+          "cat": "history",
+          "kind": "Presidential library & museum",
+          "phone": "(617) 514-1600",
+          "website": "https://www.jfklibrary.org",
+          "hours": "Daily 10am–5pm",
+          "address": "Columbia Point, Boston, MA 02125",
+          "lat": 42.31589,
+          "lng": -71.03409,
+          "tags": [
+            "Indoor"
+          ],
+          "blurb": "Relive the Kennedy era in I.M. Pei's striking waterfront building overlooking the Boston skyline."
+        },
+        {
+          "id": "act-mos",
+          "name": "Museum of Science",
+          "cat": "science",
+          "kind": "Science museum & planetarium",
+          "phone": "(617) 723-2500",
+          "website": "https://www.mos.org",
+          "hours": "Daily 9am–5pm (Fri to 9pm)",
+          "address": "1 Science Park, Boston, MA 02114",
+          "lat": 42.36789,
+          "lng": -71.07113,
+          "tags": [
+            "Family",
+            "Indoor",
+            "Iconic"
+          ],
+          "blurb": "700+ interactive exhibits, a planetarium and Omni theater spanning the Charles River dam."
+        },
+        {
+          "id": "act-fenway",
+          "name": "Fenway Park",
+          "cat": "sports",
+          "kind": "Ballpark & tours",
+          "phone": "(617) 226-6000",
+          "website": "https://www.mlb.com/redsox/ballpark",
+          "hours": "Tours daily; game days vary",
+          "address": "4 Jersey St, Boston, MA 02215",
+          "lat": 42.34627,
+          "lng": -71.09576,
+          "tags": [
+            "Iconic",
+            "Group",
+            "Outdoor"
+          ],
+          "blurb": "The oldest ballpark in the majors — catch a Red Sox game or tour this living piece of history."
+        },
+        {
+          "id": "act-freedomtrail",
+          "name": "Freedom Trail",
+          "cat": "history",
+          "kind": "Self-guided history walk",
+          "phone": "(617) 536-4100",
+          "website": "https://www.thefreedomtrail.org",
+          "hours": "Daily; visitor center 8:30am–5pm",
+          "address": "Boston Common, 139 Tremont St, Boston, MA 02111",
+          "lat": 42.35546,
+          "lng": -71.0639,
+          "tags": [
+            "Outdoor",
+            "Iconic",
+            "Family"
+          ],
+          "blurb": "A 2.5-mile red-brick path past 16 Revolution-era sites, from Boston Common to Bunker Hill (~90 min)."
+        },
+        {
+          "id": "act-mfa",
+          "name": "Museum of Fine Arts",
+          "cat": "arts",
+          "kind": "Fine art museum",
+          "phone": "(617) 267-9300",
+          "website": "https://www.mfa.org",
+          "hours": "Wed–Mon 10am–5pm (Thu–Fri to 10pm); closed Tue",
+          "address": "465 Huntington Ave, Boston, MA 02115",
+          "lat": 42.33936,
+          "lng": -71.09429,
+          "tags": [
+            "Indoor",
+            "Iconic"
+          ],
+          "blurb": "Boston's largest art museum — world-renowned Impressionist, Asian, Egyptian and early American collections."
+        },
+        {
+          "id": "act-newbury",
+          "name": "Newbury Street",
+          "cat": "shopping",
+          "kind": "Shopping district",
+          "phone": "",
+          "website": "https://newburystreetleague.org/",
+          "hours": "Shops daily; hours vary",
+          "address": "Newbury St, Back Bay, Boston, MA 02116",
+          "lat": 42.35041,
+          "lng": -71.08046,
+          "tags": [
+            "Outdoor",
+            "Group"
+          ],
+          "blurb": "Boston's chic eight-block shopping stroll — boutiques, galleries, salons and sidewalk cafés in Back Bay."
+        },
+        {
+          "id": "act-gardner",
+          "name": "Isabella Stewart Gardner Museum",
+          "cat": "arts",
+          "kind": "Art museum & garden",
+          "phone": "(617) 566-1401",
+          "website": "https://www.gardnermuseum.org",
+          "hours": "Wed–Mon 11am–5pm (Thu to 9pm); closed Tue",
+          "address": "25 Evans Way, Boston, MA 02115",
+          "lat": 42.33815,
+          "lng": -71.09921,
+          "tags": [
+            "Indoor",
+            "Date"
+          ],
+          "blurb": "A Venetian palazzo wrapped around a skylit garden courtyard, filled with an eclectic European-to-Asian collection."
+        },
+        {
+          "id": "act-quincy",
+          "name": "Quincy Market / Faneuil Hall",
+          "cat": "history",
+          "kind": "Historic market & food hall",
+          "phone": "(617) 523-1300",
+          "website": "https://faneuilhallmarketplace.com",
+          "hours": "Mon–Sat 10am–9pm; Sun 11am–7pm",
+          "address": "4 South Market St, Boston, MA 02109",
+          "lat": 42.36023,
+          "lng": -71.05491,
+          "tags": [
+            "Outdoor",
+            "Family",
+            "Iconic",
+            "Group"
+          ],
+          "blurb": "A bustling 1820s marketplace of food stalls, shops and street performers beside historic Faneuil Hall."
+        },
+        {
+          "id": "act-whalewatch",
+          "name": "New England Aquarium Whale Watch",
+          "cat": "science",
+          "kind": "Seasonal whale watch cruise",
+          "phone": "(888) 534-3516",
+          "website": "https://www.cityexperiences.com/boston/city-cruises/whale-watch/",
+          "hours": "Seasonal (mid-May–Nov); multiple departures daily; 3–4 hr cruises",
+          "address": "1 Central Wharf, Boston, MA 02110",
+          "lat": 42.35912,
+          "lng": -71.04923,
+          "tags": [
+            "Family",
+            "Outdoor",
+            "Group",
+            "Iconic"
+          ],
+          "blurb": "A seasonal harbor excursion to Stellwagen Bank aboard high-speed catamarans with onboard naturalists — spot humpback, fin and minke whales. Departs Central Wharf by the Aquarium.",
+          "addedOn": "2026-06-18"
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "icon": "ti-bed",
+      "catLabel": "Type",
+      "hasPrice": false,
+      "siteLabel": "Book a room",
+      "categories": {
+        "luxury": {
+          "label": "Luxury & full-service",
+          "color": "#b5710f"
+        },
+        "lifestyle": {
+          "label": "Lifestyle & design",
+          "color": "#7268d6"
+        },
+        "value": {
+          "label": "Extended-stay & value",
+          "color": "#188f68"
+        }
+      },
+      "intents": [
+        {
+          "key": "walkable",
+          "label": "Walkable",
+          "computed": true
+        },
+        {
+          "key": "Breakfast",
+          "label": "Free breakfast"
+        },
+        {
+          "key": "Pool",
+          "label": "Pool"
+        },
+        {
+          "key": "Waterfront",
+          "label": "Waterfront views"
+        },
+        {
+          "key": "Gym",
+          "label": "Fitness center"
+        }
+      ],
+      "tagLabels": {
+        "Breakfast": "Free breakfast",
+        "Pool": "Pool",
+        "Waterfront": "Waterfront views",
+        "Gym": "Fitness center",
+        "Rooftop": "Rooftop bar",
+        "Kitchen": "In-room kitchen"
+      },
+      "collections": [
+        {
+          "key": "closest",
+          "label": "Closest to EBC",
+          "icon": "ti-walk",
+          "maxWalk": 10
+        },
+        {
+          "key": "pool",
+          "label": "Has a pool",
+          "icon": "ti-droplet",
+          "ids": [
+            "h-omni",
+            "h-westin",
+            "h-renaissance",
+            "h-element",
+            "h-intercontinental"
+          ]
+        },
+        {
+          "key": "breakfast",
+          "label": "Free breakfast",
+          "icon": "ti-coffee",
+          "ids": [
+            "h-residenceinn",
+            "h-element"
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "h-omni",
+          "name": "Omni Boston Hotel at the Seaport",
+          "cat": "luxury",
+          "kind": "Luxury · rooftop pool",
+          "phone": "(617) 476-6664",
+          "website": "https://www.omnihotels.com/hotels/boston-seaport",
+          "hours": "",
+          "address": "450 Summer St, Boston, MA 02210",
+          "lat": 42.347,
+          "lng": -71.04262,
+          "tags": [
+            "Pool",
+            "Gym",
+            "Rooftop"
+          ],
+          "blurb": "AAA Four-Diamond flagship with a year-round heated rooftop pool and bar, spa and six dining venues."
+        },
+        {
+          "id": "h-residenceinn",
+          "name": "Residence Inn Boston Downtown/Seaport",
+          "cat": "value",
+          "kind": "Extended-stay · free breakfast",
+          "phone": "(617) 478-0840",
+          "website": "https://www.marriott.com/en-us/hotels/bosfp-residence-inn-boston-downtown-seaport/overview/",
+          "hours": "",
+          "address": "370 Congress St, Boston, MA 02210",
+          "lat": 42.35043,
+          "lng": -71.04769,
+          "tags": [
+            "Breakfast",
+            "Gym",
+            "Kitchen"
+          ],
+          "blurb": "Suites with in-room kitchens and free hot breakfast — the closest hotel to the EBC, about a 5-minute walk."
+        },
+        {
+          "id": "h-westin",
+          "name": "The Westin Boston Seaport District",
+          "cat": "luxury",
+          "kind": "Full-service · indoor pool",
+          "phone": "(617) 532-4600",
+          "website": "https://www.marriott.com/en-us/hotels/bosow-the-westin-boston-seaport-district/overview/",
+          "hours": "",
+          "address": "425 Summer St, Boston, MA 02210",
+          "lat": 42.34619,
+          "lng": -71.04274,
+          "tags": [
+            "Pool",
+            "Gym"
+          ],
+          "blurb": "Large full-service hotel beside the convention center with an indoor pool and several restaurants and bars."
+        },
+        {
+          "id": "h-renaissance",
+          "name": "Renaissance Boston Seaport District",
+          "cat": "luxury",
+          "kind": "Full-service · indoor pool",
+          "phone": "(617) 338-4111",
+          "website": "https://www.marriott.com/en-us/hotels/boswf-renaissance-boston-seaport-district/overview/",
+          "hours": "",
+          "address": "606 Congress St, Boston, MA 02210",
+          "lat": 42.34802,
+          "lng": -71.03922,
+          "tags": [
+            "Pool",
+            "Gym"
+          ],
+          "blurb": "Waterfront-district hotel (formerly Renaissance Waterfront) with an indoor pool and the Capiz Bar & Lounge."
+        },
+        {
+          "id": "h-element",
+          "name": "Element Boston Seaport District",
+          "cat": "value",
+          "kind": "Extended-stay · free breakfast",
+          "phone": "(617) 277-3900",
+          "website": "https://www.marriott.com/en-us/hotels/bosel-element-boston-seaport-district/overview/",
+          "hours": "",
+          "address": "391-395 D St, Boston, MA 02210",
+          "lat": 42.34295,
+          "lng": -71.04535,
+          "tags": [
+            "Breakfast",
+            "Pool",
+            "Gym",
+            "Kitchen"
+          ],
+          "blurb": "Eco-focused extended-stay with in-room kitchens, free breakfast and an indoor pool."
+        },
+        {
+          "id": "h-intercontinental",
+          "name": "InterContinental Boston",
+          "cat": "luxury",
+          "kind": "Luxury waterfront · spa",
+          "phone": "(617) 747-1000",
+          "website": "https://www.ihg.com/intercontinental/hotels/us/en/boston/bosha/hoteldetail",
+          "hours": "",
+          "address": "510 Atlantic Ave, Boston, MA 02210",
+          "lat": 42.35379,
+          "lng": -71.05201,
+          "tags": [
+            "Waterfront",
+            "Pool",
+            "Gym"
+          ],
+          "blurb": "Luxury waterfront hotel on the Harbor with a 45-ft indoor lap pool, spa and floor-to-ceiling skyline views."
+        },
+        {
+          "id": "h-envoy",
+          "name": "The Envoy Hotel, Autograph Collection",
+          "cat": "lifestyle",
+          "kind": "Boutique · rooftop bar",
+          "phone": "(617) 338-3030",
+          "website": "https://www.marriott.com/en-us/hotels/bosak-the-envoy-hotel-autograph-collection/overview/",
+          "hours": "",
+          "address": "70 Sleeper St, Boston, MA 02210",
+          "lat": 42.35362,
+          "lng": -71.04837,
+          "tags": [
+            "Waterfront",
+            "Rooftop",
+            "Gym"
+          ],
+          "blurb": "Design-forward boutique hotel with the popular Rooftop at The Envoy and intimate harbor views."
+        },
+        {
+          "id": "h-yotel",
+          "name": "YOTEL Boston",
+          "cat": "lifestyle",
+          "kind": "Smart cabins · rooftop bar",
+          "phone": "(617) 377-4747",
+          "website": "https://www.yotel.com/en/hotels/yotel-boston",
+          "hours": "",
+          "address": "65 Seaport Blvd, Boston, MA 02210",
+          "lat": 42.35232,
+          "lng": -71.04729,
+          "tags": [
+            "Rooftop",
+            "Gym"
+          ],
+          "blurb": "Compact, tech-savvy 'cabin' rooms and the year-round Deck 12 rooftop bar with 360-degree views."
+        },
+        {
+          "id": "h-aloft",
+          "name": "Aloft Boston Seaport District",
+          "cat": "lifestyle",
+          "kind": "Modern select-service",
+          "phone": "(617) 530-1600",
+          "website": "https://www.marriott.com/en-us/hotels/bosal-aloft-boston-seaport-district/overview/",
+          "hours": "",
+          "address": "401-403 D St, Boston, MA 02210",
+          "lat": 42.34365,
+          "lng": -71.04464,
+          "tags": [
+            "Gym"
+          ],
+          "blurb": "Modern, music-loving select-service hotel with the WXYZ bar and lively social spaces."
+        },
+        {
+          "id": "seaport-hotel",
+          "name": "Seaport Hotel Boston",
+          "cat": "luxury",
+          "kind": "Waterfront · indoor pool",
+          "phone": "(617) 385-4000",
+          "website": "https://www.seaportboston.com/",
+          "hours": "",
+          "address": "1 Seaport Lane, Boston, MA 02210",
+          "lat": 42.34914,
+          "lng": -71.04152,
+          "tags": [
+            "Pool",
+            "Gym",
+            "Waterfront"
+          ],
+          "blurb": "Large waterfront convention hotel with a heated indoor pool, 24-hour Wave fitness club and harbor views.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "boston-harbor-hotel",
+          "name": "Boston Harbor Hotel",
+          "cat": "luxury",
+          "kind": "Luxury waterfront · spa",
+          "phone": "(617) 439-7000",
+          "website": "https://www.bostonharborhotel.com/",
+          "hours": "",
+          "address": "70 Rowes Wharf, Boston, MA 02110",
+          "lat": 42.35666,
+          "lng": -71.05032,
+          "tags": [
+            "Waterfront",
+            "Pool",
+            "Gym"
+          ],
+          "blurb": "Five-star landmark under the Rowes Wharf arch — a 60-ft indoor lap pool, spa and saunas on the harbor.",
+          "addedOn": "2026-06-15"
+        },
+        {
+          "id": "marriott-long-wharf",
+          "name": "Boston Marriott Long Wharf",
+          "cat": "luxury",
+          "kind": "Waterfront · indoor pool",
+          "phone": "(617) 227-0800",
+          "website": "https://www.marriott.com/en-us/hotels/boslw-boston-marriott-long-wharf/overview/",
+          "hours": "",
+          "address": "296 State St, Boston, MA 02109",
+          "lat": 42.3602,
+          "lng": -71.05085,
+          "tags": [
+            "Waterfront",
+            "Pool",
+            "Gym"
+          ],
+          "blurb": "Waterfront Marriott beside the New England Aquarium — heated indoor pool and a 24-hour fitness center.",
+          "addedOn": "2026-06-15"
+        }
+      ]
+    },
+    "travel": {
+      "label": "Travel hubs",
+      "icon": "ti-plane-departure",
+      "catLabel": "Type",
+      "hasPrice": false,
+      "siteLabel": "Website",
+      "categories": {
+        "air": {
+          "label": "Airport",
+          "color": "#2f7ed8"
+        },
+        "rail": {
+          "label": "Train & rail",
+          "color": "#b5710f"
+        },
+        "ferry": {
+          "label": "Ferry",
+          "color": "#188f68"
+        }
+      },
+      "intents": [
+        {
+          "key": "walkable",
+          "label": "Walkable from EBC",
+          "computed": true
+        }
+      ],
+      "tagLabels": {
+        "Amtrak": "Amtrak",
+        "Commuter": "Commuter rail",
+        "Subway": "Subway / T",
+        "Ferry": "Ferry",
+        "Airport": "Airport link"
+      },
+      "collections": [],
+      "items": [
+        {
+          "id": "logan-airport",
+          "name": "Boston Logan International Airport",
+          "cat": "air",
+          "kind": "Boston's international airport (BOS)",
+          "phone": "(800) 235-6426",
+          "website": "https://www.massport.com/logan-airport",
+          "hours": "Open 24 hours",
+          "address": "1 Harborside Dr, East Boston, MA 02128",
+          "lat": 42.3656,
+          "lng": -71.0096,
+          "tags": [
+            "Airport"
+          ],
+          "blurb": "Boston's main airport — about a 10–15 minute taxi ride or Silver Line (SL1) trip from the Seaport. Live arrival and departure status by terminal below (Logan has Terminals A, B, C and E — there is no Terminal D).",
+          "linksLabel": "Live flight status (by terminal)",
+          "links": [
+            {
+              "label": "Terminal A",
+              "url": "https://www.massport.com/logan-airport/flights/flight-status#departure"
+            },
+            {
+              "label": "Terminal B",
+              "url": "https://www.massport.com/logan-airport/flights/flight-status#departure"
+            },
+            {
+              "label": "Terminal C",
+              "url": "https://www.massport.com/logan-airport/flights/flight-status#departure"
+            },
+            {
+              "label": "Terminal E",
+              "url": "https://www.massport.com/logan-airport/flights/flight-status#departure"
+            }
+          ]
+        },
+        {
+          "id": "south-station",
+          "name": "South Station",
+          "cat": "rail",
+          "kind": "Amtrak · commuter rail · Red & Silver lines",
+          "phone": "(800) 872-7245",
+          "hours": "Daily, early morning to late night",
+          "address": "700 Atlantic Ave, Boston, MA 02110",
+          "lat": 42.3519,
+          "lng": -71.0552,
+          "tags": [
+            "Amtrak",
+            "Commuter",
+            "Subway"
+          ],
+          "blurb": "Boston's largest transit hub and the closest station to the EBC — about a 10-minute walk. Amtrak (including Acela), MBTA commuter rail, the Red Line, and the Silver Line straight to Logan.",
+          "linksLabel": "Schedules",
+          "links": [
+            {
+              "label": "Amtrak",
+              "url": "https://www.amtrak.com/stations/bos",
+              "icon": "ti-train"
+            },
+            {
+              "label": "MBTA schedules",
+              "url": "https://www.mbta.com/schedules",
+              "icon": "ti-clock"
+            }
+          ]
+        },
+        {
+          "id": "north-station",
+          "name": "North Station",
+          "cat": "rail",
+          "kind": "Amtrak · commuter rail · Green & Orange lines",
+          "phone": "(800) 872-7245",
+          "hours": "Daily, early morning to late night",
+          "address": "135 Causeway St, Boston, MA 02114",
+          "lat": 42.3663,
+          "lng": -71.0622,
+          "tags": [
+            "Amtrak",
+            "Commuter",
+            "Subway"
+          ],
+          "blurb": "North-side rail hub beneath TD Garden — Amtrak's Downeaster to Maine, MBTA commuter rail north and west, and the Green & Orange lines. Also reachable by the new Harbor Loop ferry from the Seaport.",
+          "linksLabel": "Schedules",
+          "links": [
+            {
+              "label": "Amtrak",
+              "url": "https://www.amtrak.com/stations/bon",
+              "icon": "ti-train"
+            },
+            {
+              "label": "MBTA schedules",
+              "url": "https://www.mbta.com/schedules",
+              "icon": "ti-clock"
+            }
+          ]
+        },
+        {
+          "id": "commonwealth-pier-ferry",
+          "name": "Commonwealth Pier — Seaport Ferry",
+          "cat": "ferry",
+          "kind": "MBTA Harbor Loop ferry (F10) · Seaport dock",
+          "hours": "Year-round weekdays; ~every 30 min at peak",
+          "address": "200 Seaport Blvd, Boston, MA 02210",
+          "lat": 42.3518,
+          "lng": -71.041,
+          "tags": [
+            "Ferry",
+            "Airport"
+          ],
+          "blurb": "The Seaport stop on the MBTA's year-round Harbor Loop ferry (route F10) — a short walk from the EBC, with water service to Logan Airport, Central Wharf (New England Aquarium) and Lovejoy Wharf at North Station.",
+          "linksLabel": "Schedule",
+          "links": [
+            {
+              "label": "Harbor Loop (F10) schedule",
+              "url": "https://www.mbta.com/schedules/Boat-F10/line",
+              "icon": "ti-anchor"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

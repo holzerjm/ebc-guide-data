@@ -1,0 +1,32 @@
+name: Validate guide data
+
+# No path filter on purpose: a required check that gets skipped by one stays pending forever and
+# blocks every pull request that does not touch the filtered paths.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v5
+        with: { node-version: 20 }
+
+      - name: Validate, and on a pull request compare with the target branch
+        env:
+          ALLOW_REMOVAL: ${{ contains(github.event.pull_request.labels.*.name, 'allow-removal') }}
+          ALLOW_URL_CHANGE: ${{ contains(github.event.pull_request.labels.*.name, 'url-change') }}
+        run: |
+          set -euo pipefail
+          for city in boston; do
+            if [ "${{ github.event_name }}" = "pull_request" ]; then
+              git show "origin/${{ github.base_ref }}:$city/data.json" > "$RUNNER_TEMP/$city-base.json"
+              node scripts/guard.mjs "$city/data.json" "$RUNNER_TEMP/$city-base.json"
+            else
+              node scripts/guard.mjs "$city/data.json"
+            fi
+          done
