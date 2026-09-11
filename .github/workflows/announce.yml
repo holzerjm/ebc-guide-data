@@ -9,10 +9,16 @@ name: Announce a content change
 on:
   push:
     branches: [main]
-    paths: ["boston/data.json"]
+    paths: ["*/data.json"]        # a single * does not cross /, so this is exactly <city>/data.json
   # So you can check the webhook works without inventing a data change: Actions -> Announce a content
   # change -> Run workflow. With no push behind it there is nothing to diff, so it reports the total only.
   workflow_dispatch:
+    inputs:
+      city:
+        description: "Which guide to announce (test message)"
+        required: true
+        type: choice
+        options: [boston, raleigh]
 
 jobs:
   announce:
@@ -27,15 +33,34 @@ jobs:
         continue-on-error: true
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          BEFORE: ${{ github.event.before }}
+          # Optional per-city overrides. Unset secrets arrive as the empty string and fall through to the
+          # shared webhook above, so these are harmless until someone actually wants a separate channel.
+          SLACK_WEBHOOK_URL_BOSTON:  ${{ secrets.SLACK_WEBHOOK_URL_BOSTON }}
+          SLACK_WEBHOOK_URL_RALEIGH: ${{ secrets.SLACK_WEBHOOK_URL_RALEIGH }}
+          BEFORE:  ${{ github.event.before }}
+          CITY_IN: ${{ inputs.city }}
+          EVENT:   ${{ github.event_name }}
         run: |
-          set -uo pipefail
-          PREV="$RUNNER_TEMP/prev.json"
-          : > "$PREV"
+          set -uo pipefail        # NOT -e — a missing baseline is normal here; do not "tidy" this to -euo
+          PREV_SHA=""
           if [ -n "${BEFORE:-}" ] && [ "$BEFORE" != "0000000000000000000000000000000000000000" ] \
-             && git rev-parse -q --verify "$BEFORE^{commit}" >/dev/null 2>&1; then
-            git show "$BEFORE:boston/data.json" > "$PREV" 2>/dev/null || : > "$PREV"
+             && git rev-parse -q --verify "$BEFORE^{commit}" >/dev/null 2>&1; then PREV_SHA="$BEFORE"
+          elif git rev-parse -q --verify "HEAD~1" >/dev/null 2>&1; then PREV_SHA="HEAD~1"; fi
+
+          if [ "$EVENT" = "workflow_dispatch" ]; then
+            case "${CITY_IN:-}" in [a-z][a-z0-9-]*) CITIES="$CITY_IN";; *) echo "::error::bad city input"; exit 1;; esac
+          elif [ -n "$PREV_SHA" ]; then
+            # Announce only the cities whose file actually moved. Without this, a Boston-only merge also
+            # posts "Raleigh guide updated — no entry changed", which in a channel reads like a fault.
+            CITIES=$(git diff --name-only "$PREV_SHA" "$GITHUB_SHA" -- '*/data.json' \
+                     | sed -n 's#^\([a-z0-9-]*\)/data\.json$#\1#p' | sort -u)
           else
-            git show "HEAD~1:boston/data.json" > "$PREV" 2>/dev/null || : > "$PREV"
+            CITIES=$(node scripts/cities.mjs --list)
           fi
-          node scripts/announce.mjs boston/data.json "$PREV"
+
+          for city in $CITIES; do
+            [ -f "$city/data.json" ] || continue
+            PREV="$RUNNER_TEMP/$city-prev.json"; : > "$PREV"
+            [ -n "$PREV_SHA" ] && git show "$PREV_SHA:$city/data.json" > "$PREV" 2>/dev/null || : > "$PREV"
+            node scripts/announce.mjs "$city" "$city/data.json" "$PREV"
+          done

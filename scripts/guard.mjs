@@ -20,7 +20,16 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const core = createRequire(import.meta.url)(join(HERE, "..", "lib", "validate-core.js"));
 
 const [file, baselineFile] = process.argv.slice(2);
-if (!file) { console.error("usage: node scripts/guard.mjs <data.json> [baseline.json]"); process.exit(2); }
+if (!file) { console.error("usage: node scripts/guard.mjs <city>/data.json [baseline.json]"); process.exit(2); }
+
+/* Which city this file is for, from WHERE IT LIVES. The file's own meta.city is checked against it below:
+   the pair is the point — a path cannot notice foreign content pasted in, and meta.city is written by
+   whoever wrote the file, so letting either one decide alone would let a pull request pick its own rules. */
+const city = core.cityForPath(file);
+if (!city) {
+  console.error(`${file}: not a registered city data file. Expected one of: ${core.cityKeys().map((k) => core.cityFor(k).dataPath).join(", ")}`);
+  process.exit(2);
+}
 const truthy = (v) => /^(1|true|yes)$/i.test(String(v || ""));
 const allowRemoval = truthy(process.env.ALLOW_REMOVAL);
 const allowUrlChange = truthy(process.env.ALLOW_URL_CHANGE);
@@ -34,9 +43,19 @@ function load(path) {
 const data = load(file);
 let failed = false;
 
+/* The core only warns about a missing meta.city, so an old hand export still validates in the browser.
+   On the way into main it is required — otherwise the redundant pair silently collapses to one half. */
+if (!data.meta || data.meta.city !== city.key) {
+  console.error(`  ERROR: meta.city — ${file} must carry "city": "${city.key}" in meta.`);
+  failed = true;
+}
+
 /* ---- schema ---- */
-const res = core.validate(data);
-console.log(`${res.stats.items} entries across ${res.stats.sections} sections · ${res.errors.length} errors · ${res.warnings.length} warnings`);
+const res = core.validate(data, city.key);
+if (typeof res.stats.items === "number")
+  console.log(`${city.label}: ${res.stats.items} entries across ${res.stats.sections} sections · ${res.errors.length} errors · ${res.warnings.length} warnings`);
+else
+  console.log(`${city.label}: the file could not be read far enough to count entries.`);
 for (const w of res.warnings) console.log(`  warning: ${w.where} — ${w.msg}`);
 for (const e of res.errors) console.error(`  ERROR: ${e.where} — ${e.msg}`);
 if (res.errors.length) failed = true;
@@ -44,6 +63,12 @@ if (res.errors.length) failed = true;
 /* ---- gates that need something to compare against ---- */
 if (baselineFile) {
   const base = load(baselineFile);
+  /* The baseline arrives as $RUNNER_TEMP/<city>-base.json, whose directory means nothing — so check its
+     CONTENT. A mismatch here is a plumbing bug in the workflow, not a problem with the data. */
+  if (!base.meta || base.meta.city !== city.key) {
+    console.error(`  ERROR: baseline ${baselineFile} says meta.city ${JSON.stringify(base.meta && base.meta.city)} — it is not ${city.key}'s baseline. This is a plumbing bug in the workflow, not a data problem.`);
+    failed = true;
+  }
   const d = core.diff(base, data);
   console.log(`Versus the baseline: ${d.added.length} added · ${d.changed.length} changed · ${d.removed.length} removed`);
   for (const a of d.added) console.log(`  + ${a.sec} › ${a.name} (${a.id})`);

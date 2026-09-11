@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* Checks every outbound link in the data and reports what looks broken.
  * A report, never a gate: bot protection and flaky sites would otherwise fail the build for no reason.
- *   node scripts/linkcheck.mjs [data.json]
+ *   node scripts/linkcheck.mjs <city>
  */
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -10,7 +10,11 @@ import { createRequire } from "node:module";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const core = createRequire(import.meta.url)(join(HERE, "..", "lib", "validate-core.js"));
-const file = process.argv[2] || join(HERE, "..", "boston", "data.json");
+/* A required argument, not a default: a default is exactly how a two-city repo ends up link-checking one
+   city forever. */
+const CITY = core.cityFor(process.argv[2]);
+if (!CITY) { console.error(`usage: node scripts/linkcheck.mjs <${core.cityKeys().join("|")}>`); process.exit(2); }
+const file = join(HERE, "..", CITY.dataPath);
 const D = core.parseDataJs(readFileSync(file, "utf8")).data;
 
 const targets = [];
@@ -41,7 +45,7 @@ for (let i = 0; i < targets.length; i += 6)
   results.push(...await Promise.all(targets.slice(i, i + 6).map(check)));
 
 const by = (k) => results.filter((r) => r.kind === k);
-console.log(`${results.length} links checked · ${by("ok").length} fine · ${by("dead").length} broken · ${by("moved").length} moved · ${by("blocked").length} could not be checked`);
+console.log(`${CITY.label}: ${results.length} links checked · ${by("ok").length} fine · ${by("dead").length} broken · ${by("moved").length} moved · ${by("blocked").length} could not be checked`);
 for (const k of ["dead", "moved", "blocked"]) {
   if (!by(k).length) continue;
   console.log(`\n${k.toUpperCase()}`);

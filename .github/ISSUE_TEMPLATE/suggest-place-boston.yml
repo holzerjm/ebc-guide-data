@@ -1,6 +1,6 @@
-name: "➕ Suggest a place"
+name: "➕ Suggest a place — Boston"
 description: "Tell us about a restaurant, bar, activity or hotel worth adding to the Boston guide"
-title: "[New place] "
+title: "[New place · Boston] "
 labels: ["new-place", "city:boston"]
 body:
   - type: markdown
@@ -10,6 +10,9 @@ body:
         accepted ones into a pull request — nothing appears on the guide until someone merges it.
 
         You do not need to know the map coordinates: they are looked up from the address for you.
+
+        This form is for the **Boston** guide. If the place is in another city, pick that city's form from
+        the chooser — and if there is no guide for it yet, the EBC Concierge link there is the right contact.
   - type: dropdown
     id: section
     attributes:
@@ -52,7 +55,7 @@ body:
   - type: dropdown
     id: price
     attributes:
-      label: Price (Eat & Drink only)
+      label: Price
       options: ["—", "$", "$$", "$$$", "$$$$"]
       default: 0
   - type: input

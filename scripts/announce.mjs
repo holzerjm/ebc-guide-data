@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* Says what a merge changed, in the job summary and (if configured) in Slack.
  *
- *   node scripts/announce.mjs <new.json> <old.json>
+ *   node scripts/announce.mjs <city> <new.json> [old.json]
  *
  * Merging here publishes to the live guide within about five minutes, and nothing else announces it.
  * Without SLACK_WEBHOOK_URL set this still writes the summary and exits 0, so the workflow is harmless
@@ -14,12 +14,18 @@ import { createRequire } from "node:module";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const core = createRequire(import.meta.url)(join(HERE, "..", "lib", "validate-core.js"));
-const [newFile, oldFile] = process.argv.slice(2);
-const GUIDE = "https://people.redhat.com/jholzer/EBC/BostonVisitorGuide/";
+const [cityKey, newFile, oldFile] = process.argv.slice(2);
+const CITY = core.cityFor(cityKey);
+if (!CITY || !newFile) { console.error(`usage: node scripts/announce.mjs <${core.cityKeys().join("|")}> <new.json> [old.json]`); process.exit(2); }
+const GUIDE = CITY.guideUrl;
 
 const load = (p) => { const r = core.parseDataJs(readFileSync(p, "utf8")); if (r.error) throw new Error(`${p}: ${r.error}`); return r.data; };
 let now;
 try { now = load(newFile); } catch (e) { console.error(String(e.message)); process.exit(1); }
+/* Say nothing rather than something wrong: if the file disagrees about which city it is, we genuinely do
+   not know which guide changed. The step is continue-on-error, so this is a red step in a green run. */
+const rc = core.resolveCity(now, CITY.key);
+if (rc.error) { console.error(`::error::${newFile}: ${rc.error}`); process.exit(1); }
 /* No usable baseline (first commit, a force push, a missing file) is not a failure — announce without a diff. */
 let before = null;
 if (oldFile) { try { before = load(oldFile); } catch { console.log(`No usable baseline at ${oldFile} — reporting the total only.`); } }
@@ -37,7 +43,7 @@ if (d.removed.length) lines.push(`*Removed:* ${d.removed.map(name).join(", ")}`)
 if (d.changed.length) lines.push(`*Updated:* ${d.changed.map((c) => `${c.name} (${c.fields.join(", ")})`).join(" · ")}`);
 if (!lines.length) lines.push(manual ? "_Test message, started by hand from the Actions tab — nothing changed._" : "_No entry changed — metadata only._");
 
-const headline = manual ? `Boston guide — ${total} places live (test)` : `Boston guide updated — ${total} places live`;
+const headline = manual ? `${CITY.label} guide — ${total} places live (test)` : `${CITY.label} guide updated — ${total} places live`;
 const detail = lines.join("\n");
 const commit = process.env.GITHUB_SHA ? `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/commit/${process.env.GITHUB_SHA}` : "";
 const short = (process.env.GITHUB_SHA || "").slice(0, 7);
@@ -47,7 +53,10 @@ const summary = `## ${headline}\n\n${detail}\n\nVisitors see this within about f
 console.log(summary);
 if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, summary);
 
-const hook = process.env.SLACK_WEBHOOK_URL;
+/* One channel today. If a city ever needs its own, add SLACK_WEBHOOK_URL_<CITY> as a repository secret —
+   no code change; an unset per-city variable falls straight through to the shared webhook. */
+const hook = process.env["SLACK_WEBHOOK_URL_" + CITY.key.toUpperCase().replace(/-/g, "_")]
+          || process.env.SLACK_WEBHOOK_URL;
 if (!hook) { console.log("SLACK_WEBHOOK_URL is not set — nothing posted to Slack."); process.exit(0); }
 
 const payload = {

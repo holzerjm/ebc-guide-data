@@ -1,6 +1,6 @@
-name: "🚩 Report a change"
+name: "🚩 Report a change — Boston"
 description: "Something in the guide is wrong, out of date, or has closed"
-title: "[Change] "
+title: "[Change · Boston] "
 labels: ["flag", "city:boston"]
 body:
   - type: markdown

@@ -2,6 +2,10 @@ name: Validate guide data
 
 # No path filter on purpose: a required check that gets skipped by one stays pending forever and
 # blocks every pull request that does not touch the filtered paths.
+#
+# DO NOT TURN THIS INTO A MATRIX. A matrix renames the check to "validate (boston)" / "validate (raleigh)",
+# the branch ruleset keeps waiting for a check literally named "validate", and every pull request hangs
+# forever. The loop below is deliberate. The job id must stay `validate` for the same reason.
 on:
   pull_request:
   push:
@@ -12,21 +16,47 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-        with: { fetch-depth: 0 }
+        with: { fetch-depth: 0 }      # the comparison gates need the base branch's history
       - uses: actions/setup-node@v5
         with: { node-version: 20 }
 
-      - name: Validate, and on a pull request compare with the target branch
+      - name: Validate every city, and on a pull request compare with the target branch
         env:
-          ALLOW_REMOVAL: ${{ contains(github.event.pull_request.labels.*.name, 'allow-removal') }}
+          ALLOW_REMOVAL:    ${{ contains(github.event.pull_request.labels.*.name, 'allow-removal') }}
           ALLOW_URL_CHANGE: ${{ contains(github.event.pull_request.labels.*.name, 'url-change') }}
+          EVENT:    ${{ github.event_name }}
+          BASE_REF: ${{ github.base_ref }}
         run: |
-          set -euo pipefail
-          for city in boston; do
-            if [ "${{ github.event_name }}" = "pull_request" ]; then
-              git show "origin/${{ github.base_ref }}:$city/data.json" > "$RUNNER_TEMP/$city-base.json"
-              node scripts/guard.mjs "$city/data.json" "$RUNNER_TEMP/$city-base.json"
-            else
-              node scripts/guard.mjs "$city/data.json"
-            fi
+          set -uo pipefail          # NOT -e: every city must report in one run, not just up to the first failure
+          fail=0
+          shopt -s nullglob         # an unexpanded glob would report a bogus error on an empty tree
+          known=$(node scripts/cities.mjs --list)
+
+          # A folder holding a data.json that is not in the registry would be validated by nothing at all.
+          for f in */data.json; do
+            city="${f%%/*}"
+            printf '%s\n' "$known" | grep -qxF "$city" \
+              || { echo "::error::$f is not a registered city — add it to CITIES in lib/validate-core.js, or remove the folder."; fail=1; }
           done
+
+          # If the checkout has no base history, every comparison gate silently becomes a no-op. Refuse.
+          if [ "$EVENT" = "pull_request" ] && ! git rev-parse -q --verify "origin/$BASE_REF^{commit}" >/dev/null; then
+            echo "::error::No history for origin/$BASE_REF — actions/checkout must keep fetch-depth: 0 here."
+            exit 1
+          fi
+
+          for city in $known; do
+            f="$city/data.json"
+            echo "::group::$city"
+            if [ "$EVENT" = "pull_request" ] && git cat-file -e "origin/$BASE_REF:$f" 2>/dev/null; then
+              git show "origin/$BASE_REF:$f" > "$RUNNER_TEMP/$city-base.json"
+              node scripts/guard.mjs "$f" "$RUNNER_TEMP/$city-base.json" || fail=1
+            else
+              [ "$EVENT" = "pull_request" ] && echo "No $f on $BASE_REF — new city, schema only."
+              node scripts/guard.mjs "$f" || fail=1
+            fi
+            echo "::endgroup::"
+          done
+
+          node scripts/cities.mjs --check || fail=1
+          exit $fail
