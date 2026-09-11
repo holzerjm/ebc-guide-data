@@ -40,6 +40,7 @@ jobs:
     outputs:
       status: ${{ steps.build.outputs.status }}
       branch: ${{ steps.build.outputs.branch }}
+      city:   ${{ steps.build.outputs.city }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
@@ -51,9 +52,11 @@ jobs:
 
       - name: Stage the result
         if: steps.build.outputs.status == 'ok'
+        env:
+          CITY: ${{ steps.build.outputs.city }}   # via env, never inline ${{ }} in a shell line
         run: |
           mkdir -p bot-artifact
-          cp boston/data.json bot-artifact/data.json
+          cp "$CITY/data.json" bot-artifact/data.json
           cp "$RUNNER_TEMP/pr-title.txt" "$RUNNER_TEMP/pr-body.md" bot-artifact/
 
       - uses: actions/upload-artifact@v4
@@ -100,6 +103,7 @@ jobs:
           BOT_TOKEN: ${{ steps.app.outputs.token || secrets.EBC_BOT_PAT }}
           GH_TOKEN: ${{ github.token }}
           BRANCH: ${{ needs.draft.outputs.branch }}
+          CITY:   ${{ needs.draft.outputs.city }}
           ISSUE: ${{ github.event.issue.number }}
         run: |
           set -euo pipefail
@@ -109,12 +113,22 @@ jobs:
               --body "I drafted an entry for this suggestion, but the bot has no push token configured yet, so a maintainer needs to open the pull request by hand. See MAINTAINING.md."
             exit 0
           fi
-          cp bot-artifact/data.json boston/data.json
+          # publish holds the only token. Even though CITY came from our own draft job, it originated on an
+          # issue, so it is validated here before it reaches a filesystem path.
+          case "$CITY" in
+            [a-z][a-z0-9-]*) ;;
+            *) echo "::error::refusing an unexpected city value"; exit 1 ;;
+          esac
+          # The allow-list is the repo's own tracked data files at the checked-out main — something the issue
+          # cannot write to, and something that cannot drift out of step with the registry.
+          git ls-files -- '*/data.json' | grep -qxF "$CITY/data.json" \
+            || { echo "::error::$CITY/data.json is not a tracked data file in this repository"; exit 1; }
+          cp bot-artifact/data.json "$CITY/data.json"
           git config user.name "ebc-guide-bot"
           git config user.email "ebc-guide-bot@users.noreply.github.com"
           git checkout -b "$BRANCH"
-          git add boston/data.json
-          git commit -m "Draft entry from suggestion #${ISSUE}"
+          git add "$CITY/data.json"
+          git commit -m "Draft entry for ${CITY} from suggestion #${ISSUE}"
           AUTH=$(printf 'x-access-token:%s' "$BOT_TOKEN" | base64 | tr -d '\n')
           git -c http.extraheader="AUTHORIZATION: basic ${AUTH}" \
             push --force "https://github.com/${{ github.repository }}.git" "HEAD:refs/heads/${BRANCH}"

@@ -21,14 +21,19 @@ The guide's own code is not here. It lives in a separate, private repository.
 | Path | What it is |
 |---|---|
 | `boston/data.json` | The Boston guide's data — sections, categories and one object per venue |
-| `lib/validate-core.js` | The validator. This repository is its home; the guide's own repository takes its copy from here |
+| `lib/validate-core.js` | The validator, and the **city registry** — each city's bounding box, sections and URLs. This repository is its home; each guide's own repository takes its copy from here |
 | `scripts/guard.mjs` | The check that runs on every change (see below) |
+| `scripts/cities.mjs` | The registry on the command line. `--check` asserts that every city has a data file that names itself, a suggestion form and a report form labelled for it, and a form that only offers sections, categories and tags its data actually has |
 | `.github/workflows/` | Continuous integration |
 
 ## Proposing a change
 
-**No Git needed:** [suggest a place](../../issues/new?template=suggest-place.yml) or
-[report a change](../../issues/new?template=flag-place.yml) with a form — a maintainer turns accepted
+Each city has its own directory and its own pair of issue forms. A data file says which city it belongs to
+in `meta.city`, and that must agree with the directory it sits in — the two are checked against each other so
+that an entry drafted into the wrong city's file is caught rather than validated against the wrong map.
+
+**No Git needed:** [suggest a place](../../issues/new?template=suggest-place-boston.yml) or
+[report a change](../../issues/new?template=flag-place-boston.yml) with a form — a maintainer turns accepted
 suggestions into a pull request, with the address geocoded for you.
 
 **With Git:** open a pull request against `boston/data.json`. See [CONTRIBUTING.md](CONTRIBUTING.md) for the

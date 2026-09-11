@@ -23,7 +23,13 @@ jobs:
 
       - name: Check every outbound link
         run: |
-          node scripts/linkcheck.mjs | tee report.txt
+          : > report.txt
+          # The `|| echo` matters: this step has no continue-on-error, and a failure here would skip the
+          # commit step that keeps the monthly schedule alive.
+          for city in $(node scripts/cities.mjs --list); do
+            { echo "## $city"; node scripts/linkcheck.mjs "$city" || echo "(link check failed for $city)"; echo; } >> report.txt
+          done
+          cat report.txt
           { echo '## Link check'; echo '```'; cat report.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Keep the report, and the schedule alive
