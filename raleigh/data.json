@@ -1,9 +1,9 @@
 {
   "meta": {
     "city": "raleigh",
-    "version": 4,
+    "version": 5,
     "updatedAt": "2026-09-11",
-    "updatedBy": "MICHELIN Guide American South markers; added Mala Pata and Sam Jones BBQ",
+    "updatedBy": "Stanbury carries the MICHELIN badge now, so the blurb need not say it",
     "michelinEdition": "American South 2025"
   },
   "center": {
@@ -290,7 +290,7 @@
             "Patio",
             "Casual"
           ],
-          "blurb": "Chef-driven New American small plates in a rustic former grocery in Mordecai — a Michelin Guide listee. In-person reservations only."
+          "blurb": "Chef-driven New American small plates in a rustic former grocery in Mordecai. In-person reservations only."
         },
         {
           "id": "madre",
