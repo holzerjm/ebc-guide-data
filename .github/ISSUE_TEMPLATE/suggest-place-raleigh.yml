@@ -1,0 +1,135 @@
+name: "➕ Suggest a place — Raleigh"
+description: "Tell us about a restaurant, bar, activity or hotel worth adding to the Raleigh guide"
+title: "[New place · Raleigh] "
+labels: ["new-place", "city:raleigh"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping keep the guide useful. A maintainer reviews every suggestion and turns the
+        accepted ones into a pull request — nothing appears on the guide until someone merges it.
+
+        You do not need to know the map coordinates: they are looked up from the address for you.
+
+        This form is for the **Raleigh** guide. If the place is in another city, pick that city's form from
+        the chooser — and if there is no guide for it yet, the EBC Concierge link there is the right contact.
+  - type: dropdown
+    id: section
+    attributes:
+      label: Which part of the guide?
+      options:
+        - "Eat"
+        - "Bars"
+        - "Hotels"
+        - "Activities"
+    validations: { required: true }
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      placeholder: "e.g. Poole's Diner"
+    validations: { required: true }
+  - type: input
+    id: address
+    attributes:
+      label: Street address
+      description: "Street, city and ZIP. It must be in or around downtown Raleigh — the guide only covers what a visitor can reach from the Red Hat office."
+      placeholder: "100 E Davie St, Raleigh, NC 27601"
+    validations: { required: true }
+  - type: input
+    id: website
+    attributes:
+      label: Official website
+      placeholder: "https://…"
+    validations: { required: true }
+  - type: input
+    id: category
+    attributes:
+      label: Category
+      description: |
+        Use one of the categories that part of the guide already has:
+        • **Eat** — New American · Seafood & oysters · French · Mediterranean · Asian · BBQ & Southern · Café & bakery · Mexican & Latin · Italian & pizza · Food halls
+        • **Bars** — Cocktail bars · Speakeasy & hidden · Whiskey bars · Pubs & beer
+        • **Hotels** — Downtown full-service · Lifestyle & boutique · Luxury & spa
+        • **Activities** — Arts & museums · Science & nature · History & landmarks · Parks & outdoors · Sports & live music · Family & fun
+      placeholder: "New American"
+    validations: { required: true }
+  - type: dropdown
+    id: price
+    attributes:
+      label: Price
+      options: ["—", "$", "$$", "$$$", "$$$$"]
+      default: 0
+  - type: input
+    id: kind
+    attributes:
+      label: In a few words, what is it?
+      description: "Two to four words, the way the guide describes places — e.g. 'Seafood & raw bar', 'Whole-hog barbecue'."
+      placeholder: "Seafood & raw bar"
+  - type: input
+    id: hours
+    attributes:
+      label: Opening hours
+      placeholder: "Tue–Sat dinner; closed Mon"
+  - type: input
+    id: phone
+    attributes:
+      label: Phone
+      placeholder: "(919) 555-1234"
+  - type: textarea
+    id: blurb
+    attributes:
+      label: One sentence a visitor would find useful
+      description: "Factual, under 200 characters. What is it, and what is it good for? No marketing copy."
+      placeholder: "Downtown wood-fired barbecue counter — whole hog, cash-friendly, expect a queue at noon."
+    validations: { required: true }
+  - type: checkboxes
+    id: tags
+    attributes:
+      label: Good for…
+      description: "Only the ones that genuinely apply. These become the guide's filters."
+      options:
+        - label: "Date night"
+        - label: "Group-friendly"
+        - label: "Private dining"
+        - label: "Brunch"
+        - label: "Late night"
+        - label: "Impress a client"
+        - label: "Lunch"
+        - label: "Casual"
+        - label: "Patio"
+        - label: "Family-friendly"
+        - label: "Breakfast"
+        - label: "Quick bite"
+        - label: "Veg-friendly"
+        - label: "Red Hat discount"
+        - label: "Cocktails"
+        - label: "Craft beer"
+        - label: "Wine"
+        - label: "Bar snacks"
+        - label: "Pool"
+        - label: "Fitness center"
+        - label: "Rooftop bar"
+        - label: "Spa"
+        - label: "Free breakfast"
+        - label: "Luxury"
+        - label: "Indoor"
+        - label: "Outdoor"
+        - label: "Iconic Raleigh"
+        - label: "Date-worthy"
+        - label: "Group outing"
+        - label: "Evening"
+        - label: "Free admission"
+  - type: textarea
+    id: why
+    attributes:
+      label: Why is it worth a visitor's time? (optional)
+      description: "One or two sentences for the maintainer. This is not published as-is."
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Before you submit
+      options:
+        - label: "This is accurate to the best of my knowledge, and a genuine recommendation rather than promotion."
+          required: true
+        - label: "I have a connection to this place (I work there, own it, or represent it). Disclosing is fine — we just like to know."

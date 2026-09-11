@@ -15,7 +15,12 @@ reaches the guide automatically.
 
 ## With Git
 
-Edit `boston/data.json` and open a pull request. One entry looks like this:
+First, **which city?** Each guide has its own file and its own pair of issue forms:
+`boston/data.json` for the Boston guide, `raleigh/data.json` for Raleigh. Raleigh has a `bars` section
+that Boston does not — Boston folds bars into Eat & Drink — so use the section names that city's file
+actually has.
+
+Edit the `data.json` for the city you mean and open a pull request. One entry looks like this:
 
 ```json
 {
@@ -38,7 +43,10 @@ Edit `boston/data.json` and open a pull request. One entry looks like this:
 
 - `cat` must be one of that section's categories, and `tags` one of its tags — see the top of
   `boston/data.json`, or the descriptions on the suggestion form.
-- `lat`/`lng` must be inside Greater Boston. The suggestion form does this for you; by hand, any geocoder will do.
+- `lat`/`lng` must be inside that city's bounding box. The suggestion form does this for you; by hand, any
+  geocoder will do.
+- `meta.city` must match the directory — `"city": "boston"` in `boston/data.json`. It is already there; do not
+  change it. A file that says one city while sitting in another's directory is rejected.
 - `price` applies to Eat & Drink only, `$` to `$$$$`.
 - `blurb` is one factual sentence, under 200 characters, no HTML.
 - `addedOn` gives the place a "New pick" badge for 90 days.
@@ -47,6 +55,7 @@ Check it before you push:
 
 ```bash
 node scripts/guard.mjs boston/data.json                    # schema
+node scripts/guard.mjs raleigh/data.json                   # the other city
 node scripts/guard.mjs boston/data.json previous.json      # and the comparison gates
 ```
 
