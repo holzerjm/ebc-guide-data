@@ -28,13 +28,16 @@ const total = Object.values(now.sections).reduce((n, s) => n + s.items.length, 0
 const d = before ? core.diff(before, now) : { added: [], changed: [], removed: [] };
 const name = (x) => x.name;
 
+/* A hand-started run has no merge behind it, so say that plainly rather than posting "no entry changed"
+   into a channel where it reads like something went wrong. */
+const manual = process.env.GITHUB_EVENT_NAME === "workflow_dispatch";
 const lines = [];
 if (d.added.length) lines.push(`*Added:* ${d.added.map(name).join(", ")}`);
 if (d.removed.length) lines.push(`*Removed:* ${d.removed.map(name).join(", ")}`);
 if (d.changed.length) lines.push(`*Updated:* ${d.changed.map((c) => `${c.name} (${c.fields.join(", ")})`).join(" · ")}`);
-if (!lines.length) lines.push("_No entry changed — metadata only._");
+if (!lines.length) lines.push(manual ? "_Test message, started by hand from the Actions tab — nothing changed._" : "_No entry changed — metadata only._");
 
-const headline = `Boston guide updated — ${total} places live`;
+const headline = manual ? `Boston guide — ${total} places live (test)` : `Boston guide updated — ${total} places live`;
 const detail = lines.join("\n");
 const commit = process.env.GITHUB_SHA ? `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/commit/${process.env.GITHUB_SHA}` : "";
 const short = (process.env.GITHUB_SHA || "").slice(0, 7);
