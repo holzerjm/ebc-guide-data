@@ -136,8 +136,10 @@ Merging here reaches customers in about five minutes and nothing announces it. T
 2. Add it here as a repository secret named **`SLACK_WEBHOOK_URL`**
    (*Settings → Secrets and variables → Actions → New repository secret*).
 
-That is all. The **Announce a content change** workflow already runs on every merge that touches
-`boston/data.json`; without the secret it writes its summary to the Actions run and posts nothing. The
+To check it: *Actions → Announce a content change → Run workflow*. With no merge behind it there is
+nothing to compare, so it reports the total and posts that — enough to prove the webhook works.
+
+The workflow runs on every merge that touches `boston/data.json`; without the secret it writes its summary to the Actions run and posts nothing. The
 message names what was added, removed or updated, and links to the guide. It never fails the build — a
 broken webhook must not make a good merge look broken.
 
