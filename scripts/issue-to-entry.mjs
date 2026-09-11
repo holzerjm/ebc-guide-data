@@ -148,7 +148,11 @@ async function geocode(address) {
   const vb = [BBOX.lngMin, BBOX.latMax, BBOX.lngMax, BBOX.latMin].join(",");
   let hit = await nominatim(q, vb);
   if (hit) return { ...hit, outside: false };
-  hit = await nominatim(q, null);
+  /* Nothing inside the box. Look again with the address EXACTLY as typed — appending this city's state to
+     an address that already names a different one ("63 Salem St, Boston, MA, North Carolina") produces a
+     query no geocoder can resolve, so a right-address-wrong-city suggestion would be reported as
+     "could not be geocoded" instead of being placed where it really is. */
+  hit = await nominatim(address, null);
   return hit ? { ...hit, outside: true } : null;
 }
 const pin = await geocode(address);
