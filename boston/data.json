@@ -1,8 +1,9 @@
 {
   "meta": {
-    "version": 13,
-    "updatedAt": "2026-09-10",
-    "updatedBy": "Added Zurito (suggested in #1)",
+    "city": "boston",
+    "version": 14,
+    "updatedAt": "2026-09-11",
+    "updatedBy": "Tagged the file with its city, ahead of Raleigh joining the repository",
     "michelinEdition": "2025"
   },
   "center": {
