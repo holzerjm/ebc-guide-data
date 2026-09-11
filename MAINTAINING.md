@@ -127,7 +127,21 @@ checks passing. Add a second maintainer later and raise approvals to 1.
 
 The monthly health check is unaffected: it writes to the `health` branch, not `main`.
 
-### 3. Optional, if suggestions ever get spammy
+### 3. Tell the team when something changes
+
+Merging here reaches customers in about five minutes and nothing announces it. To have merges post to Slack:
+
+1. In Slack, create an **incoming webhook** for the channel you want (Slack → *Apps* → *Incoming Webhooks* →
+   *Add to Slack* → pick the channel → copy the URL). It looks like `https://hooks.slack.com/services/…`.
+2. Add it here as a repository secret named **`SLACK_WEBHOOK_URL`**
+   (*Settings → Secrets and variables → Actions → New repository secret*).
+
+That is all. The **Announce a content change** workflow already runs on every merge that touches
+`boston/data.json`; without the secret it writes its summary to the Actions run and posts nothing. The
+message names what was added, removed or updated, and links to the guide. It never fails the build — a
+broken webhook must not make a good merge look broken.
+
+### 4. Optional, if suggestions ever get spammy
 
 *Settings → Moderation → Interaction limits* throttles new or unknown accounts for up to six months.
 *Settings → Features → Issues* can be set to collaborators only, but that shuts out the customers and

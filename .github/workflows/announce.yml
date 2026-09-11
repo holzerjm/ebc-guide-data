@@ -1,0 +1,38 @@
+# Says in Slack what a merge changed, because merging here publishes to the live guide within about five
+# minutes and nothing else announces it.
+#
+# Needs a Slack incoming webhook in the repository secret SLACK_WEBHOOK_URL. Without it the job still runs
+# and writes the same summary to the Actions run — it just posts nothing — so this is harmless until the
+# secret exists. It never fails the build: a broken webhook must not make a good merge look bad.
+name: Announce a content change
+
+on:
+  push:
+    branches: [main]
+    paths: ["boston/data.json"]
+
+jobs:
+  announce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v5
+        with: { node-version: 20 }
+
+      - name: Say what changed
+        continue-on-error: true
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          set -uo pipefail
+          PREV="$RUNNER_TEMP/prev.json"
+          : > "$PREV"
+          if [ -n "${BEFORE:-}" ] && [ "$BEFORE" != "0000000000000000000000000000000000000000" ] \
+             && git rev-parse -q --verify "$BEFORE^{commit}" >/dev/null 2>&1; then
+            git show "$BEFORE:boston/data.json" > "$PREV" 2>/dev/null || : > "$PREV"
+          else
+            git show "HEAD~1:boston/data.json" > "$PREV" 2>/dev/null || : > "$PREV"
+          fi
+          node scripts/announce.mjs boston/data.json "$PREV"
