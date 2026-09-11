@@ -3,7 +3,7 @@
     "city": "raleigh",
     "version": 5,
     "updatedAt": "2026-09-11",
-    "updatedBy": "Stanbury carries the MICHELIN badge now, so the blurb need not say it",
+    "updatedBy": "Suggested in #20",
     "michelinEdition": "American South 2025"
   },
   "center": {
@@ -890,6 +890,24 @@
             "Casual"
           ],
           "blurb": "Cozy, dog-friendly neighborhood cocktail bar in historic Oakwood with one of the state's deepest Latin American spirits lists."
+        },
+        {
+          "id": "wrongcity-placeholder-geocode",
+          "name": "Wrongcity Placeholder (geocode test)",
+          "cat": "cocktail",
+          "kind": "Test entry",
+          "phone": "(919) 555-0100",
+          "website": "https://example.com",
+          "hours": "Daily 4pm–midnight",
+          "address": "63 Salem St, Boston, MA 02113",
+          "lat": 42.36323,
+          "lng": -71.05602,
+          "tags": [
+            "Cocktails",
+            "Group"
+          ],
+          "blurb": "Throwaway entry used to verify that the suggestion bot routes to the Raleigh data file. Safe to close.",
+          "addedOn": "2026-09-11"
         }
       ]
     },
