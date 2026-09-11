@@ -1,0 +1,1456 @@
+{
+  "meta": {
+    "city": "raleigh",
+    "version": 4,
+    "updatedAt": "2026-09-11",
+    "updatedBy": "MICHELIN Guide American South markers; added Mala Pata and Sam Jones BBQ",
+    "michelinEdition": "American South 2025"
+  },
+  "center": {
+    "name": "Red Hat (Raleigh)",
+    "address": "100 E Davie St, Raleigh, NC 27601",
+    "lat": 35.77516,
+    "lng": -78.63786
+  },
+  "sections": {
+    "dining": {
+      "label": "Eat",
+      "icon": "ti-tools-kitchen-2",
+      "catLabel": "Style",
+      "hasPrice": true,
+      "siteLabel": "Website",
+      "categories": {
+        "american": {
+          "label": "New American",
+          "color": "#5b6b7b"
+        },
+        "seafood": {
+          "label": "Seafood & oysters",
+          "color": "#2f7ed8"
+        },
+        "french": {
+          "label": "French",
+          "color": "#cf4f7a"
+        },
+        "med": {
+          "label": "Mediterranean",
+          "color": "#d8542b"
+        },
+        "asian": {
+          "label": "Asian",
+          "color": "#0d9488"
+        },
+        "bbq": {
+          "label": "BBQ & Southern",
+          "color": "#b5710f"
+        },
+        "cafe": {
+          "label": "Café & bakery",
+          "color": "#6f4e37"
+        },
+        "mexican": {
+          "label": "Mexican & Latin",
+          "color": "#2e9e6b"
+        },
+        "italian": {
+          "label": "Italian & pizza",
+          "color": "#7e57c2"
+        },
+        "foodhall": {
+          "label": "Food halls",
+          "color": "#e0a100"
+        }
+      },
+      "intents": [
+        {
+          "key": "walkable",
+          "label": "Walkable",
+          "computed": true
+        },
+        {
+          "key": "Date",
+          "label": "Date night"
+        },
+        {
+          "key": "Group",
+          "label": "Group-friendly"
+        },
+        {
+          "key": "Private",
+          "label": "Private dining"
+        },
+        {
+          "key": "Brunch",
+          "label": "Brunch"
+        },
+        {
+          "key": "Late",
+          "label": "Late night"
+        },
+        {
+          "key": "Impress",
+          "label": "Impress a client"
+        }
+      ],
+      "tagLabels": {
+        "Date": "Date night",
+        "Group": "Group-friendly",
+        "Private": "Private dining",
+        "Brunch": "Brunch",
+        "Late": "Late night",
+        "Impress": "Impress a client",
+        "Lunch": "Lunch",
+        "Casual": "Casual",
+        "Patio": "Patio",
+        "Family": "Family-friendly",
+        "Breakfast": "Breakfast",
+        "Quick": "Quick bite",
+        "Vegetarian": "Veg-friendly",
+        "Discount": "Red Hat discount"
+      },
+      "collections": [
+        {
+          "key": "discount",
+          "label": "Show your badge",
+          "icon": "ti-discount-2",
+          "ids": [
+            "sosta-cafe",
+            "sir-walter-coffee",
+            "amorino",
+            "vics-italian",
+            "sono-sushi"
+          ]
+        },
+        {
+          "key": "impress",
+          "label": "Impress a client",
+          "icon": "ti-diamond",
+          "ids": [
+            "death-taxes",
+            "crawford-son",
+            "second-empire",
+            "jolie",
+            "brodeto"
+          ]
+        },
+        {
+          "key": "date",
+          "label": "Date night",
+          "icon": "ti-heart",
+          "ids": [
+            "pooles",
+            "stanbury",
+            "st-roch",
+            "jolie",
+            "madre"
+          ]
+        },
+        {
+          "key": "steps",
+          "label": "Steps from the office",
+          "icon": "ti-walk",
+          "maxWalk": 12
+        }
+      ],
+      "items": [
+        {
+          "id": "crawford-son",
+          "name": "Crawford & Son",
+          "cat": "american",
+          "kind": "New American",
+          "price": "$$$",
+          "michelin": "selected",
+          "phone": "(919) 307-4647",
+          "website": "https://crawfordandsonrestaurant.com",
+          "hours": "Tue–Sat dinner",
+          "address": "618 N Person St, Raleigh, NC 27604",
+          "lat": 35.78881,
+          "lng": -78.63421,
+          "tags": [
+            "Impress",
+            "Date",
+            "Group"
+          ],
+          "blurb": "Chef Scott Crawford's flagship in Person Street Plaza — refined, seasonal New American and a James Beard–recognized Raleigh standout."
+        },
+        {
+          "id": "st-roch",
+          "name": "St. Roch Fine Oysters + Bar",
+          "cat": "seafood",
+          "kind": "New Orleans seafood & oysters",
+          "price": "$$$",
+          "michelin": "selected",
+          "phone": "(919) 322-0359",
+          "website": "https://www.strochraleigh.com",
+          "hours": "Tue–Sun dinner; Sat–Sun brunch",
+          "address": "223 S Wilmington St, Raleigh, NC 27601",
+          "lat": 35.77751,
+          "lng": -78.63803,
+          "tags": [
+            "Date",
+            "Brunch",
+            "Group"
+          ],
+          "blurb": "Chef Sunny Gerhart's lively downtown spot for fresh oysters and New Orleans–inspired seafood, plus weekend brunch."
+        },
+        {
+          "id": "death-taxes",
+          "name": "Death & Taxes",
+          "cat": "american",
+          "kind": "Wood-fired New American",
+          "price": "$$$",
+          "phone": "(984) 242-0218",
+          "website": "https://ac-restaurants.com/death-taxes/",
+          "hours": "Mon–Sat dinner",
+          "address": "105 W Hargett St, Raleigh, NC 27601",
+          "lat": 35.77817,
+          "lng": -78.64047,
+          "tags": [
+            "Impress",
+            "Date",
+            "Group"
+          ],
+          "blurb": "Ashley Christensen's wood-fired restaurant in a converted 1907 bank — Southern-leaning New American cooked over open flame."
+        },
+        {
+          "id": "pooles",
+          "name": "Poole's Diner",
+          "cat": "american",
+          "kind": "Modern diner",
+          "price": "$$$",
+          "michelin": "selected",
+          "phone": "(919) 832-4477",
+          "website": "https://ac-restaurants.com/pooles/",
+          "hours": "Dinner nightly",
+          "address": "428 S McDowell St, Raleigh, NC 27601",
+          "lat": 35.77464,
+          "lng": -78.64231,
+          "tags": [
+            "Date",
+            "Casual",
+            "Late"
+          ],
+          "blurb": "Ashley Christensen's iconic modern diner — famous for macaroni au gratin and an ever-changing chalkboard menu. No reservations."
+        },
+        {
+          "id": "jolie",
+          "name": "Jolie",
+          "cat": "french",
+          "kind": "French bistro",
+          "price": "$$$",
+          "michelin": "selected",
+          "phone": "(919) 803-7221",
+          "website": "https://restaurantjolie.com",
+          "hours": "Tue–Sat dinner",
+          "address": "620 N Person St, Raleigh, NC 27604",
+          "lat": 35.78887,
+          "lng": -78.6342,
+          "tags": [
+            "Date",
+            "Impress",
+            "Patio"
+          ],
+          "blurb": "Scott Crawford's French bistro beside Crawford & Son — steak frites, escargot and a charming rooftop garden."
+        },
+        {
+          "id": "brodeto",
+          "name": "Brodeto",
+          "cat": "seafood",
+          "kind": "Adriatic seafood",
+          "price": "$$$",
+          "michelin": "selected",
+          "phone": "(919) 615-0388",
+          "website": "https://brodeto.com",
+          "hours": "Dinner nightly",
+          "address": "2201 Iron Works Dr, Raleigh, NC 27604",
+          "lat": 35.80817,
+          "lng": -78.61918,
+          "tags": [
+            "Impress",
+            "Date",
+            "Group"
+          ],
+          "blurb": "Scott Crawford's Adriatic seafood restaurant — crudo, wood-fired fish and the namesake brodeto stew at the Raleigh Iron Works (about 2.5 mi northeast)."
+        },
+        {
+          "id": "stanbury",
+          "name": "Stanbury",
+          "cat": "american",
+          "kind": "New American small plates",
+          "price": "$$$",
+          "michelin": "selected",
+          "phone": "(919) 977-4321",
+          "website": "https://www.stanburyraleigh.com/",
+          "hours": "Tue–Sat dinner",
+          "address": "938 N Blount St, Raleigh, NC 27604",
+          "lat": 35.7935,
+          "lng": -78.63538,
+          "tags": [
+            "Date",
+            "Patio",
+            "Casual"
+          ],
+          "blurb": "Chef-driven New American small plates in a rustic former grocery in Mordecai — a Michelin Guide listee. In-person reservations only."
+        },
+        {
+          "id": "madre",
+          "name": "Madre",
+          "cat": "med",
+          "kind": "Mediterranean small plates",
+          "price": "$$$",
+          "phone": "(919) 594-1871",
+          "website": "https://www.madreraleigh.com/",
+          "hours": "Daily; brunch Sun",
+          "address": "518 N West St, Raleigh, NC 27603",
+          "lat": 35.78672,
+          "lng": -78.64538,
+          "tags": [
+            "Group",
+            "Date",
+            "Brunch"
+          ],
+          "blurb": "Stylish Glenwood South spot for Mediterranean-inspired small plates made for sharing, with a deep wine and cocktail list."
+        },
+        {
+          "id": "second-empire",
+          "name": "Second Empire Restaurant & Tavern",
+          "cat": "american",
+          "kind": "Upscale American · historic mansion",
+          "price": "$$$$",
+          "phone": "(919) 829-3663",
+          "website": "https://www.second-empire.com/",
+          "hours": "Tue–Sat dinner",
+          "address": "330 Hillsborough St, Raleigh, NC 27603",
+          "lat": 35.78093,
+          "lng": -78.6447,
+          "tags": [
+            "Impress",
+            "Private",
+            "Date"
+          ],
+          "blurb": "Fine dining in the restored 1879 Dodd-Hinsdale House — an elegant upstairs restaurant and a relaxed downstairs tavern."
+        },
+        {
+          "id": "brewery-bhavana",
+          "name": "Brewery Bhavana",
+          "cat": "asian",
+          "kind": "Dim sum & brewery",
+          "price": "$$",
+          "michelin": "selected",
+          "phone": "(919) 829-9998",
+          "website": "https://brewerybhavana.com/",
+          "hours": "Daily lunch & dinner",
+          "address": "218 S Blount St, Raleigh, NC 27601",
+          "lat": 35.77741,
+          "lng": -78.63692,
+          "tags": [
+            "Group",
+            "Casual",
+            "Lunch"
+          ],
+          "blurb": "One-of-a-kind downtown spot that's a dim sum restaurant, craft brewery, flower shop and bookstore all at once. James Beard–recognized."
+        },
+        {
+          "id": "birdies",
+          "name": "Birdie's Barroom & Kitchen",
+          "cat": "american",
+          "kind": "All-day American café & bar",
+          "price": "$$",
+          "phone": "(919) 589-1340",
+          "website": "https://www.birdiesraleigh.com/",
+          "hours": "Daily, breakfast–dinner",
+          "address": "150 Fayetteville St, Raleigh, NC 27601",
+          "lat": 35.779,
+          "lng": -78.6395,
+          "tags": [
+            "Casual",
+            "Brunch",
+            "Patio"
+          ],
+          "blurb": "All-day café, restaurant and bar on the Fayetteville Street mall with NC-rooted plates and a big patio with swings and lawn games."
+        },
+        {
+          "id": "the-pit",
+          "name": "The Pit Authentic Barbecue",
+          "cat": "bbq",
+          "kind": "Whole-hog NC barbecue",
+          "price": "$$",
+          "michelin": "selected",
+          "phone": "(919) 890-4500",
+          "website": "https://www.thepit-raleigh.com/",
+          "hours": "Daily lunch & dinner",
+          "address": "328 W Davie St, Raleigh, NC 27601",
+          "lat": 35.77588,
+          "lng": -78.64473,
+          "tags": [
+            "Group",
+            "Family",
+            "Lunch"
+          ],
+          "blurb": "Warehouse District barbecue institution serving authentic Eastern NC whole-hog 'cue, ribs and Southern sides in a 1930s warehouse."
+        },
+        {
+          "id": "lucette-grace",
+          "name": "Lucette Grace",
+          "cat": "cafe",
+          "kind": "French-style patisserie & café",
+          "price": "$$",
+          "phone": "(919) 307-4950",
+          "website": "https://lucettegrace.com/",
+          "hours": "Mon–Fri 8am–4pm; Sat–Sun 9am–4pm",
+          "address": "235 S Salisbury St, Raleigh, NC 27601",
+          "lat": 35.77729,
+          "lng": -78.63997,
+          "tags": [
+            "Breakfast",
+            "Casual",
+            "Quick"
+          ],
+          "blurb": "Polished downtown patisserie and café — pastries, macarons and a light breakfast/lunch menu, a couple of blocks from the office."
+        },
+        {
+          "id": "sir-walter-coffee",
+          "name": "Sir Walter Coffee",
+          "cat": "cafe",
+          "kind": "Coffee shop + beer & wine",
+          "price": "$",
+          "phone": "(919) 322-0019",
+          "website": "https://www.sirwaltercoffee.com/",
+          "hours": "Daily from 7am; evenings Tue–Sat",
+          "address": "145 E Davie St, Raleigh, NC 27601",
+          "lat": 35.77564,
+          "lng": -78.63708,
+          "tags": [
+            "Discount",
+            "Casual",
+            "Quick"
+          ],
+          "blurb": "Coffee by day, beer and wine by night — a relaxed spot a block from the office. Show your Red Hat badge for 10% off food and beverage (not alcohol)."
+        },
+        {
+          "id": "sosta-cafe",
+          "name": "Sosta Cafe",
+          "cat": "cafe",
+          "kind": "Café — coffee, salads & sandwiches",
+          "price": "$$",
+          "phone": "(919) 833-1006",
+          "website": "https://www.sostacafe.com/",
+          "hours": "Mon–Sat ~8am–8pm; closed Sun",
+          "address": "130 E Davie St, Raleigh, NC 27601",
+          "lat": 35.77546,
+          "lng": -78.63785,
+          "tags": [
+            "Discount",
+            "Breakfast",
+            "Lunch"
+          ],
+          "blurb": "The café on the ground floor of the Red Hat Tower — espresso, fresh salads and house-made sandwiches with good veg options. 10% off drinks with your badge."
+        },
+        {
+          "id": "amorino",
+          "name": "Amorino Gelato",
+          "cat": "cafe",
+          "kind": "Gelato & dessert",
+          "price": "$",
+          "phone": "(919) 239-4411",
+          "website": "https://www.amorino.com/en-us/stores/raleigh",
+          "hours": "Daily noon–10pm (Fri–Sat to 11pm)",
+          "address": "137 E Davie St, Raleigh, NC 27601",
+          "lat": 35.77562,
+          "lng": -78.63772,
+          "tags": [
+            "Discount",
+            "Casual",
+            "Family"
+          ],
+          "blurb": "French-Italian gelateria known for flower-shaped gelato cones and macarons, steps from the office. 20% off with your Red Hat badge."
+        },
+        {
+          "id": "sitti",
+          "name": "Sitti",
+          "cat": "med",
+          "kind": "Authentic Lebanese",
+          "price": "$$$",
+          "phone": "(919) 239-4070",
+          "website": "https://www.sitti-raleigh.com/",
+          "hours": "Sun–Thu 11am–10pm; Fri–Sat to 11pm",
+          "address": "137 S Wilmington St, Raleigh, NC 27601",
+          "lat": 35.77836,
+          "lng": -78.63808,
+          "tags": [
+            "Lunch",
+            "Group",
+            "Date"
+          ],
+          "blurb": "Acclaimed authentic Lebanese — mezze and wood-grilled dishes in a lively downtown room (from the Empire Eats group). Strong for groups and a sit-down lunch or dinner."
+        },
+        {
+          "id": "big-eds",
+          "name": "Big Ed's City Market Restaurant",
+          "cat": "bbq",
+          "kind": "Southern breakfast & lunch",
+          "price": "$$",
+          "phone": "(919) 836-9909",
+          "website": "https://www.bigedsnc.com/",
+          "hours": "Tue–Sun 7am–2pm; closed Mon",
+          "address": "220 Wolfe St, Raleigh, NC 27601",
+          "lat": 35.77606,
+          "lng": -78.63599,
+          "tags": [
+            "Breakfast",
+            "Brunch",
+            "Family"
+          ],
+          "blurb": "Iconic City Market institution serving big, classic Southern breakfast and lunch in a memorabilia-packed room. Breakfast/lunch only; expect a weekend line."
+        },
+        {
+          "id": "centro",
+          "name": "Centro",
+          "cat": "mexican",
+          "kind": "Mexican",
+          "price": "$$$",
+          "phone": "(919) 835-3593",
+          "website": "https://www.centroraleigh.com/",
+          "hours": "Lunch Mon–Sat; dinner Wed–Sat; closed Sun",
+          "address": "106 S Wilmington St, Raleigh, NC 27601",
+          "lat": 35.77927,
+          "lng": -78.63842,
+          "tags": [
+            "Lunch",
+            "Casual",
+            "Date"
+          ],
+          "blurb": "Local, organic-leaning Mexican in the heart of downtown — contemporary and traditional dishes for lunch and dinner. Closed Sundays."
+        },
+        {
+          "id": "gringo-a-go-go",
+          "name": "Gringo A Go Go",
+          "cat": "mexican",
+          "kind": "Mexican cantina",
+          "price": "$$",
+          "phone": "(919) 977-1438",
+          "website": "https://gringoraleigh.com/",
+          "hours": "Daily 11am–8/10pm",
+          "address": "100 N Person St, Raleigh, NC 27601",
+          "lat": 35.78128,
+          "lng": -78.63448,
+          "tags": [
+            "Patio",
+            "Brunch",
+            "Vegetarian"
+          ],
+          "blurb": "Easygoing Mexican cantina with a dog-friendly patio, scratch cooking and solid vegan options; weekend brunch is a draw. About a 12-minute walk up Person St."
+        },
+        {
+          "id": "vics-italian",
+          "name": "Vic's Italian Restaurant & Pizzeria",
+          "cat": "italian",
+          "kind": "Italian & pizza",
+          "price": "$$",
+          "phone": "(919) 829-7090",
+          "website": "https://vicsitalianpizzeria.com/",
+          "hours": "Mon–Sat 11am–10/11pm; closed Sun",
+          "address": "331 Blake St, Raleigh, NC 27601",
+          "lat": 35.77593,
+          "lng": -78.63563,
+          "tags": [
+            "Discount",
+            "Group",
+            "Casual"
+          ],
+          "blurb": "Family-run City Market institution for NY-style pizza and generous pasta. 20% off with your Red Hat badge; closed Sundays."
+        },
+        {
+          "id": "sono-sushi",
+          "name": "Sono Sushi",
+          "cat": "asian",
+          "kind": "Sushi & Japanese izakaya",
+          "price": "$$$",
+          "phone": "(919) 521-5328",
+          "website": "https://sonoraleigh.com/",
+          "hours": "Lunch Mon–Fri; dinner daily 5–9pm",
+          "address": "319 Fayetteville St #101, Raleigh, NC 27601",
+          "lat": 35.77593,
+          "lng": -78.63913,
+          "tags": [
+            "Discount",
+            "Date",
+            "Lunch"
+          ],
+          "blurb": "Sleek downtown sushi and Japanese izakaya with ramen and a deep sake list, right on Fayetteville St. 10% off Mondays (dine-in) with your badge."
+        },
+        {
+          "id": "transfer-co-food-hall",
+          "name": "Transfer Co. Food Hall",
+          "cat": "foodhall",
+          "kind": "Food hall · many vendors",
+          "price": "$$",
+          "phone": "(984) 232-8122",
+          "website": "https://www.transfercofoodhall.com/",
+          "hours": "Daily; vendor hours vary",
+          "address": "500 E Davie St, Raleigh, NC 27601",
+          "lat": 35.77516,
+          "lng": -78.63216,
+          "tags": [
+            "Group",
+            "Casual",
+            "Family"
+          ],
+          "blurb": "Renovated warehouse food hall with a dozen-plus independent vendors and a bar (Benchwarmers Bagels, Burial Beer and more) — great for groups who want variety. About a 7-minute walk east."
+        },
+        {
+          "id": "morgan-street-food-hall",
+          "name": "Morgan Street Food Hall",
+          "cat": "foodhall",
+          "kind": "Food hall · 20+ vendors",
+          "price": "$$",
+          "phone": "(919) 307-4481",
+          "website": "https://www.morganfoodhall.com/",
+          "hours": "Daily to 10pm; late Fri–Sat",
+          "address": "411 W Morgan St, Raleigh, NC 27603",
+          "lat": 35.77933,
+          "lng": -78.64553,
+          "tags": [
+            "Group",
+            "Casual",
+            "Late"
+          ],
+          "blurb": "A big downtown food hall with 20+ vendors — tacos, pizza, sushi burritos, empanadas, boba and bars — open late on weekends. Great for groups."
+        },
+        {
+          "id": "mala-pata",
+          "name": "Mala Pata",
+          "cat": "mexican",
+          "kind": "Oaxacan masa & mezcal",
+          "price": "$$",
+          "michelin": "bib",
+          "phone": "(984) 303-5323",
+          "website": "https://www.malapatanc.com/",
+          "hours": "Tue–Sat 5–9:30pm; Sun brunch 10:30am–2pm; closed Mon",
+          "address": "2431 Crabtree Blvd, Ste 102, Raleigh, NC 27604",
+          "lat": 35.80522,
+          "lng": -78.61446,
+          "tags": [
+            "Date",
+            "Group",
+            "Brunch",
+            "Casual",
+            "Vegetarian"
+          ],
+          "blurb": "Latin American shared plates built on heirloom Oaxacan corn ground in-house, with a mezcal bar alongside.",
+          "addedOn": "2026-09-11"
+        },
+        {
+          "id": "sam-jones-bbq",
+          "name": "Sam Jones BBQ",
+          "cat": "bbq",
+          "kind": "Whole-hog barbecue",
+          "price": "$$",
+          "michelin": "bib",
+          "phone": "(984) 206-2555",
+          "website": "https://www.samjonesbbq.com/raleigh",
+          "hours": "Mon–Sat 11am–9pm; Sun 11am–8:30pm",
+          "address": "502 W Lenoir St, Raleigh, NC 27601",
+          "lat": 35.77335,
+          "lng": -78.64666,
+          "tags": [
+            "Group",
+            "Private",
+            "Lunch",
+            "Casual",
+            "Family"
+          ],
+          "blurb": "Eastern North Carolina whole-hog barbecue cooked over wood, from the Skylight Inn family; counter service.",
+          "addedOn": "2026-09-11"
+        }
+      ]
+    },
+    "bars": {
+      "label": "Bars",
+      "icon": "ti-glass",
+      "catLabel": "Type",
+      "hasPrice": false,
+      "siteLabel": "Website",
+      "categories": {
+        "cocktail": {
+          "label": "Cocktail bars",
+          "color": "#7268d6"
+        },
+        "speakeasy": {
+          "label": "Speakeasy & hidden",
+          "color": "#b5710f"
+        },
+        "whiskey": {
+          "label": "Whiskey bars",
+          "color": "#cf4f7a"
+        },
+        "pub": {
+          "label": "Pubs & beer",
+          "color": "#188f68"
+        }
+      },
+      "intents": [
+        {
+          "key": "walkable",
+          "label": "Walkable",
+          "computed": true
+        },
+        {
+          "key": "Cocktails",
+          "label": "Cocktails"
+        },
+        {
+          "key": "Beer",
+          "label": "Craft beer"
+        },
+        {
+          "key": "Wine",
+          "label": "Wine"
+        },
+        {
+          "key": "Late",
+          "label": "Late night"
+        },
+        {
+          "key": "Patio",
+          "label": "Patio"
+        }
+      ],
+      "tagLabels": {
+        "Cocktails": "Cocktails",
+        "Beer": "Craft beer",
+        "Wine": "Wine",
+        "Late": "Late night",
+        "Patio": "Patio",
+        "Date": "Date night",
+        "Group": "Group-friendly",
+        "Casual": "Casual",
+        "Snacks": "Bar snacks"
+      },
+      "collections": [
+        {
+          "key": "cocktails",
+          "label": "Cocktail spots",
+          "icon": "ti-glass",
+          "ids": [
+            "foundation",
+            "watts-ward",
+            "william-co",
+            "bar-marigold"
+          ]
+        },
+        {
+          "key": "steps",
+          "label": "Steps from the office",
+          "icon": "ti-walk",
+          "maxWalk": 12
+        }
+      ],
+      "items": [
+        {
+          "id": "watts-ward",
+          "name": "Watts & Ward",
+          "cat": "speakeasy",
+          "kind": "Speakeasy & cocktails",
+          "phone": "(919) 896-8016",
+          "website": "https://www.wattsandward.com/",
+          "hours": "Tue–Sun, evenings to late",
+          "address": "200 S Blount St, Raleigh, NC 27601",
+          "lat": 35.77798,
+          "lng": -78.63674,
+          "tags": [
+            "Cocktails",
+            "Date",
+            "Late"
+          ],
+          "blurb": "A 1920s-style Prohibition cocktail lounge in a candlelit lower-level space — craft cocktails, walk-ins welcome."
+        },
+        {
+          "id": "foundation",
+          "name": "Foundation",
+          "cat": "cocktail",
+          "kind": "Craft cocktail bar",
+          "phone": "(919) 896-6016",
+          "website": "https://foundationnc.com/",
+          "hours": "Mon–Sat, evenings to late",
+          "address": "213 Fayetteville St, Raleigh, NC 27601",
+          "lat": 35.77776,
+          "lng": -78.63889,
+          "tags": [
+            "Cocktails",
+            "Date",
+            "Late"
+          ],
+          "blurb": "One of downtown's original craft cocktail bars, tucked below Fayetteville Street — seasonal cocktails and a deep American whiskey list."
+        },
+        {
+          "id": "whiskey-kitchen",
+          "name": "Whiskey Kitchen",
+          "cat": "whiskey",
+          "kind": "Whiskey bar & kitchen",
+          "phone": "(919) 803-3181",
+          "website": "https://www.whiskey.kitchen/",
+          "hours": "Daily; late Fri–Sat",
+          "address": "201 W Martin St, Raleigh, NC 27601",
+          "lat": 35.77677,
+          "lng": -78.64216,
+          "tags": [
+            "Cocktails",
+            "Group",
+            "Late"
+          ],
+          "blurb": "Downtown whiskey bar and Southern kitchen with 300+ whiskies, craft cocktails and regional plates."
+        },
+        {
+          "id": "bar-sous-terre",
+          "name": "Bar Sous Terre",
+          "cat": "speakeasy",
+          "kind": "Underground cocktail club",
+          "phone": "",
+          "website": "https://www.barsousterre.com/",
+          "hours": "Tue–Sun, evenings",
+          "address": "620 N Person St, Raleigh, NC 27604",
+          "lat": 35.78836,
+          "lng": -78.6342,
+          "tags": [
+            "Cocktails",
+            "Date",
+            "Late"
+          ],
+          "blurb": "Scott Crawford's intimate basement cocktail club beneath Jolie and Crawford & Son — classics and rare spirits (no key needed if you dine upstairs)."
+        },
+        {
+          "id": "dram-draught",
+          "name": "Dram & Draught",
+          "cat": "whiskey",
+          "kind": "Whiskey & cocktail bar",
+          "phone": "",
+          "website": "https://www.dramanddraught.com/",
+          "hours": "Daily to late",
+          "address": "1 Glenwood Ave, Raleigh, NC 27603",
+          "lat": 35.78084,
+          "lng": -78.64767,
+          "tags": [
+            "Cocktails",
+            "Beer",
+            "Date"
+          ],
+          "blurb": "Glenwood South whiskey bar with 300+ whiskies, craft cocktails and local draughts against a backlit wall of spirits."
+        },
+        {
+          "id": "raleigh-times",
+          "name": "The Raleigh Times Bar",
+          "cat": "pub",
+          "kind": "Historic bar & pub",
+          "phone": "(919) 833-0999",
+          "website": "https://www.raleightimesbar.com/",
+          "hours": "Daily ~11am–2am",
+          "address": "14 E Hargett St, Raleigh, NC 27601",
+          "lat": 35.78004,
+          "lng": -78.63862,
+          "tags": [
+            "Beer",
+            "Casual",
+            "Patio"
+          ],
+          "blurb": "A downtown institution in the 100-year-old former Raleigh Times newspaper building — big beer list, pub fare and a rooftop deck."
+        },
+        {
+          "id": "bar-marigold",
+          "name": "Bar Marigold",
+          "cat": "cocktail",
+          "kind": "Cocktail lounge",
+          "phone": "",
+          "website": "https://www.instagram.com/bar.marigold/",
+          "hours": "Evenings (Jubala Coffee by day)",
+          "address": "301 Hillsborough St, Raleigh, NC 27603",
+          "lat": 35.78015,
+          "lng": -78.64377,
+          "tags": [
+            "Cocktails",
+            "Date",
+            "Snacks"
+          ],
+          "blurb": "Coffee shop by day, cocktail lounge by night inside Jubala Coffee — classic, new and coffee-infused cocktails plus small bites."
+        },
+        {
+          "id": "william-co",
+          "name": "William & Company",
+          "cat": "cocktail",
+          "kind": "Neighborhood cocktail bar",
+          "phone": "(984) 242-4788",
+          "website": "https://williamcobar.com/",
+          "hours": "Daily, evenings to late",
+          "address": "616 N Person St, Raleigh, NC 27604",
+          "lat": 35.78834,
+          "lng": -78.63429,
+          "tags": [
+            "Cocktails",
+            "Date",
+            "Casual"
+          ],
+          "blurb": "Cozy, dog-friendly neighborhood cocktail bar in historic Oakwood with one of the state's deepest Latin American spirits lists."
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "icon": "ti-bed",
+      "catLabel": "Type",
+      "hasPrice": false,
+      "siteLabel": "Book a room",
+      "categories": {
+        "fullservice": {
+          "label": "Downtown full-service",
+          "color": "#2f7ed8"
+        },
+        "lifestyle": {
+          "label": "Lifestyle & boutique",
+          "color": "#7268d6"
+        },
+        "luxury": {
+          "label": "Luxury & spa",
+          "color": "#b5710f"
+        }
+      },
+      "intents": [
+        {
+          "key": "walkable",
+          "label": "Walkable",
+          "computed": true
+        },
+        {
+          "key": "Pool",
+          "label": "Pool"
+        },
+        {
+          "key": "Gym",
+          "label": "Fitness center"
+        },
+        {
+          "key": "Rooftop",
+          "label": "Rooftop bar"
+        },
+        {
+          "key": "Spa",
+          "label": "Spa"
+        }
+      ],
+      "tagLabels": {
+        "Pool": "Pool",
+        "Gym": "Fitness center",
+        "Rooftop": "Rooftop bar",
+        "Spa": "Spa",
+        "Breakfast": "Free breakfast",
+        "Luxury": "Luxury"
+      },
+      "collections": [
+        {
+          "key": "closest",
+          "label": "Closest to the office",
+          "icon": "ti-walk",
+          "maxWalk": 10
+        }
+      ],
+      "items": [
+        {
+          "id": "marriott-city-center",
+          "name": "Raleigh Marriott City Center",
+          "cat": "fullservice",
+          "kind": "Downtown full-service",
+          "phone": "(919) 833-1120",
+          "website": "https://www.marriott.com/en-us/hotels/rdumc-raleigh-marriott-city-center/overview/",
+          "hours": "",
+          "address": "500 Fayetteville St, Raleigh, NC 27601",
+          "lat": 35.77387,
+          "lng": -78.63964,
+          "tags": [
+            "Gym"
+          ],
+          "blurb": "Contemporary convention hotel on Fayetteville Street, connected to the Raleigh Convention Center and a 2-minute walk from the Red Hat Tower."
+        },
+        {
+          "id": "sheraton-raleigh",
+          "name": "Sheraton Raleigh Hotel",
+          "cat": "fullservice",
+          "kind": "Downtown full-service",
+          "phone": "(919) 834-9900",
+          "website": "https://www.marriott.com/en-us/hotels/rdusi-sheraton-raleigh-hotel/overview/",
+          "hours": "",
+          "address": "421 S Salisbury St, Raleigh, NC 27601",
+          "lat": 35.77489,
+          "lng": -78.6399,
+          "tags": [
+            "Gym"
+          ],
+          "blurb": "Modern downtown hotel a block from the convention center and the Red Hat Tower, walkable to 40+ restaurants and the State Capitol."
+        },
+        {
+          "id": "the-casso",
+          "name": "The Casso, Raleigh (Tribute Portfolio)",
+          "cat": "lifestyle",
+          "kind": "Lifestyle & boutique",
+          "phone": "(984) 275-2220",
+          "website": "https://www.thecassoraleigh.com/",
+          "hours": "",
+          "address": "603 W Morgan St, Raleigh, NC 27603",
+          "lat": 35.77961,
+          "lng": -78.64773,
+          "tags": [
+            "Gym"
+          ],
+          "blurb": "Boutique 126-room lifestyle hotel in the Warehouse District with Southern-rooted design and the restaurant Good Day Good Night."
+        },
+        {
+          "id": "tempo-hilton",
+          "name": "Tempo by Hilton Raleigh Downtown",
+          "cat": "lifestyle",
+          "kind": "Lifestyle · rooftop bar",
+          "phone": "(919) 645-5080",
+          "website": "https://www.hilton.com/en/hotels/rdudopo-tempo-raleigh-downtown/",
+          "hours": "",
+          "address": "200 W Davie St, Raleigh, NC 27601",
+          "lat": 35.7759,
+          "lng": -78.64261,
+          "tags": [
+            "Rooftop",
+            "Gym"
+          ],
+          "blurb": "Newer (2024) lifestyle hotel in the Warehouse District with the rooftop bar Urban Oak — a 6–8 minute walk from the office."
+        },
+        {
+          "id": "the-umstead",
+          "name": "The Umstead Hotel and Spa",
+          "cat": "luxury",
+          "kind": "Luxury · spa (Cary)",
+          "phone": "(919) 447-4000",
+          "website": "https://www.theumstead.com/",
+          "hours": "",
+          "address": "100 Woodland Pond Dr, Cary, NC 27513",
+          "lat": 35.82938,
+          "lng": -78.76546,
+          "tags": [
+            "Luxury",
+            "Spa",
+            "Pool"
+          ],
+          "blurb": "Forbes Five-Star resort with a destination spa, lakeside grounds and the acclaimed restaurant Herons — in Cary, about 11 miles west of downtown."
+        }
+      ]
+    },
+    "activities": {
+      "label": "Activities",
+      "icon": "ti-ticket",
+      "catLabel": "Type",
+      "hasPrice": false,
+      "siteLabel": "Tickets & info",
+      "categories": {
+        "arts": {
+          "label": "Arts & museums",
+          "color": "#cf4f7a"
+        },
+        "science": {
+          "label": "Science & nature",
+          "color": "#188f68"
+        },
+        "history": {
+          "label": "History & landmarks",
+          "color": "#b5710f"
+        },
+        "parks": {
+          "label": "Parks & outdoors",
+          "color": "#5f9020"
+        },
+        "sports": {
+          "label": "Sports & live music",
+          "color": "#2f7ed8"
+        },
+        "family": {
+          "label": "Family & fun",
+          "color": "#7268d6"
+        }
+      },
+      "intents": [
+        {
+          "key": "walkable",
+          "label": "Walkable",
+          "computed": true
+        },
+        {
+          "key": "Free",
+          "label": "Free admission"
+        },
+        {
+          "key": "Family",
+          "label": "Family-friendly"
+        },
+        {
+          "key": "Outdoor",
+          "label": "Outdoor"
+        },
+        {
+          "key": "Indoor",
+          "label": "Indoor"
+        },
+        {
+          "key": "Iconic",
+          "label": "Iconic Raleigh"
+        }
+      ],
+      "tagLabels": {
+        "Indoor": "Indoor",
+        "Outdoor": "Outdoor",
+        "Family": "Family-friendly",
+        "Iconic": "Iconic Raleigh",
+        "Date": "Date-worthy",
+        "Group": "Group outing",
+        "Evening": "Evening",
+        "Free": "Free admission"
+      },
+      "collections": [
+        {
+          "key": "family",
+          "label": "With the family",
+          "icon": "ti-users",
+          "ids": [
+            "act-marbles",
+            "act-pullen",
+            "act-natural-sciences",
+            "act-videri",
+            "act-farmers-market"
+          ]
+        },
+        {
+          "key": "free",
+          "label": "Free to visit",
+          "icon": "ti-gift",
+          "ids": [
+            "act-ncma",
+            "act-natural-sciences",
+            "act-capitol",
+            "act-dix",
+            "act-umstead",
+            "act-raulston"
+          ]
+        },
+        {
+          "key": "steps",
+          "label": "Steps from the office",
+          "icon": "ti-walk",
+          "maxWalk": 15
+        }
+      ],
+      "items": [
+        {
+          "id": "act-natural-sciences",
+          "name": "NC Museum of Natural Sciences",
+          "cat": "science",
+          "kind": "Science museum · free",
+          "phone": "(919) 707-9800",
+          "website": "https://naturalsciences.org/",
+          "hours": "Daily 10am–5pm",
+          "address": "11 W Jones St, Raleigh, NC 27601",
+          "lat": 35.78219,
+          "lng": -78.63942,
+          "tags": [
+            "Free",
+            "Family",
+            "Indoor"
+          ],
+          "blurb": "The Southeast's largest natural history museum — dinosaurs, live animals and a butterfly conservatory — free and walkable downtown by the Capitol."
+        },
+        {
+          "id": "act-capitol",
+          "name": "North Carolina State Capitol",
+          "cat": "history",
+          "kind": "Historic landmark · free",
+          "phone": "(919) 814-7900",
+          "website": "https://historicsites.nc.gov/all-sites/north-carolina-state-capitol",
+          "hours": "Mon–Sat; closed Sun",
+          "address": "1 E Edenton St, Raleigh, NC 27601",
+          "lat": 35.78036,
+          "lng": -78.63911,
+          "tags": [
+            "Free",
+            "Iconic",
+            "Indoor"
+          ],
+          "blurb": "An 1840 Greek Revival capitol and National Historic Landmark in Union Square — free self-guided visits, with guided tours on Saturdays. A short walk from the office."
+        },
+        {
+          "id": "act-marbles",
+          "name": "Marbles Kids Museum",
+          "cat": "family",
+          "kind": "Kids museum & IMAX",
+          "phone": "(919) 834-4040",
+          "website": "https://marbleskidsmuseum.org/",
+          "hours": "Daily 10am–5pm (Thu to 7pm)",
+          "address": "201 E Hargett St, Raleigh, NC 27601",
+          "lat": 35.77844,
+          "lng": -78.63621,
+          "tags": [
+            "Family",
+            "Indoor",
+            "Group"
+          ],
+          "blurb": "Hands-on children's museum on Moore Square with interactive play exhibits and an IMAX theater — best with kids, a few blocks from the office."
+        },
+        {
+          "id": "act-videri",
+          "name": "Videri Chocolate Factory",
+          "cat": "family",
+          "kind": "Chocolate factory & café",
+          "phone": "(919) 755-5053",
+          "website": "https://viderichocolatefactory.com/",
+          "hours": "Daily (Fri–Sat to 9pm)",
+          "address": "327 W Davie St, Raleigh, NC 27601",
+          "lat": 35.77514,
+          "lng": -78.64475,
+          "tags": [
+            "Family",
+            "Date",
+            "Indoor"
+          ],
+          "blurb": "A bean-to-bar chocolate factory, café and shop in the Warehouse District — watch chocolate being made, with free self-guided tours daily. About a 10-minute walk."
+        },
+        {
+          "id": "act-ncma",
+          "name": "North Carolina Museum of Art",
+          "cat": "arts",
+          "kind": "Art museum & park",
+          "phone": "(919) 839-6262",
+          "website": "https://ncartmuseum.org/",
+          "hours": "Wed–Sun 10am–5pm; closed Mon–Tue",
+          "address": "2110 Blue Ridge Rd, Raleigh, NC 27607",
+          "lat": 35.81009,
+          "lng": -78.70233,
+          "tags": [
+            "Free",
+            "Indoor",
+            "Date"
+          ],
+          "blurb": "Encyclopedic state art museum with a free permanent collection and a 164-acre park of trails and outdoor art. Special exhibitions are ticketed. About 15–20 min west of downtown."
+        },
+        {
+          "id": "act-raulston",
+          "name": "JC Raulston Arboretum",
+          "cat": "science",
+          "kind": "Botanical garden · free",
+          "phone": "(919) 515-3132",
+          "website": "https://jcra.ncsu.edu/",
+          "hours": "Daily (seasonal hours)",
+          "address": "4415 Beryl Rd, Raleigh, NC 27606",
+          "lat": 35.7945,
+          "lng": -78.6991,
+          "tags": [
+            "Free",
+            "Outdoor",
+            "Date"
+          ],
+          "blurb": "A free 10-acre public garden at NC State with 5,000+ plants across themed display gardens — peaceful and especially lovely in spring and early summer."
+        },
+        {
+          "id": "act-pullen",
+          "name": "Pullen Park",
+          "cat": "family",
+          "kind": "Historic park · carousel",
+          "phone": "(919) 996-6468",
+          "website": "https://raleighnc.gov/parks-and-recreation/places/pullen-park",
+          "hours": "Park daily; rides seasonal",
+          "address": "520 Ashe Ave, Raleigh, NC 27606",
+          "lat": 35.78036,
+          "lng": -78.66383,
+          "tags": [
+            "Family",
+            "Outdoor",
+            "Iconic"
+          ],
+          "blurb": "North Carolina's oldest public park (1887), home to a restored 1911 Dentzel carousel, a kiddie train and pedal boats — a charming, low-key outing near NC State."
+        },
+        {
+          "id": "act-dix",
+          "name": "Dorothea Dix Park",
+          "cat": "parks",
+          "kind": "Urban park · skyline views",
+          "phone": "(919) 996-4774",
+          "website": "https://dorotheadixpark.org/",
+          "hours": "Daily, dawn–dusk",
+          "address": "2105 Umstead Dr, Raleigh, NC 27603",
+          "lat": 35.77083,
+          "lng": -78.66028,
+          "tags": [
+            "Free",
+            "Outdoor",
+            "Group"
+          ],
+          "blurb": "A 308-acre park on rolling hills about a mile from downtown with some of the best skyline views in the city — and a famous summer sunflower field."
+        },
+        {
+          "id": "act-red-hat-amphitheater",
+          "name": "Red Hat Amphitheater",
+          "cat": "sports",
+          "kind": "Outdoor amphitheater",
+          "phone": "(919) 996-8800",
+          "website": "https://www.redhatamphitheater.com/",
+          "hours": "Seasonal (spring–fall); event nights",
+          "address": "500 S McDowell St, Raleigh, NC 27601",
+          "lat": 35.7736,
+          "lng": -78.6428,
+          "tags": [
+            "Evening",
+            "Outdoor",
+            "Group"
+          ],
+          "blurb": "A ~6,000-seat open-air amphitheater in the heart of downtown hosting national touring acts from spring through fall — walkable from the office (moving one block south for 2027)."
+        },
+        {
+          "id": "act-lenovo-center",
+          "name": "Lenovo Center",
+          "cat": "sports",
+          "kind": "Arena · Hurricanes & concerts",
+          "phone": "(919) 861-2300",
+          "website": "https://www.lenovocenter.com/",
+          "hours": "Event nights",
+          "address": "1400 Edwards Mill Rd, Raleigh, NC 27607",
+          "lat": 35.80333,
+          "lng": -78.72194,
+          "tags": [
+            "Evening",
+            "Group",
+            "Indoor"
+          ],
+          "blurb": "Home of the NHL's Carolina Hurricanes and NC State basketball, this 19,000-seat arena (formerly PNC Arena) hosts major touring concerts and shows year-round. About 5 mi west."
+        },
+        {
+          "id": "act-farmers-market",
+          "name": "NC State Farmers Market",
+          "cat": "family",
+          "kind": "Farmers market",
+          "phone": "(919) 733-7417",
+          "website": "https://www.ncagr.gov/divisions/marketing/farmers-markets-agricultural-centers/state-farmers-market-raleigh",
+          "hours": "Mon–Sat 5am–7pm; Sun 8am–5pm",
+          "address": "1201 Agriculture St, Raleigh, NC 27603",
+          "lat": 35.76363,
+          "lng": -78.66274,
+          "tags": [
+            "Family",
+            "Outdoor",
+            "Group"
+          ],
+          "blurb": "A 75-acre year-round market with local produce, NC specialty foods, plants and on-site Southern restaurants — a lively weekend-morning browse, about 2.5 mi southwest."
+        },
+        {
+          "id": "act-umstead",
+          "name": "William B. Umstead State Park",
+          "cat": "parks",
+          "kind": "State park · hiking",
+          "phone": "(919) 571-4170",
+          "website": "https://www.ncparks.gov/state-parks/william-b-umstead-state-park",
+          "hours": "Daily from 8am (seasonal close)",
+          "address": "8801 Glenwood Ave, Raleigh, NC 27617",
+          "lat": 35.8905,
+          "lng": -78.7502,
+          "tags": [
+            "Free",
+            "Outdoor",
+            "Group"
+          ],
+          "blurb": "5,500+ acres of woods, 20+ miles of trails and three lakes between Raleigh and the airport — a great half-day nature break, about 12 mi northwest."
+        }
+      ]
+    },
+    "travel": {
+      "label": "Travel hubs",
+      "icon": "ti-plane-departure",
+      "catLabel": "Type",
+      "hasPrice": false,
+      "siteLabel": "Website",
+      "categories": {
+        "air": {
+          "label": "Airport",
+          "color": "#2f7ed8"
+        },
+        "rail": {
+          "label": "Train & transit",
+          "color": "#b5710f"
+        }
+      },
+      "intents": [
+        {
+          "key": "walkable",
+          "label": "Walkable from the office",
+          "computed": true
+        }
+      ],
+      "tagLabels": {
+        "Airport": "Airport",
+        "Amtrak": "Amtrak",
+        "Transit": "Regional transit",
+        "Bus": "Bus"
+      },
+      "collections": [],
+      "items": [
+        {
+          "id": "rdu-airport",
+          "name": "Raleigh-Durham International Airport",
+          "cat": "air",
+          "kind": "International airport (RDU)",
+          "phone": "(919) 840-2123",
+          "website": "https://www.rdu.com/",
+          "hours": "Open 24/7; security from ~4:30am",
+          "address": "2400 John Brantley Blvd, Morrisville, NC 27560",
+          "lat": 35.87764,
+          "lng": -78.78747,
+          "tags": [
+            "Airport"
+          ],
+          "blurb": "The Triangle's main airport — about a 20–25 minute drive (~13 mi) west of downtown via I-40. Terminal 1 serves Southwest, Spirit and other low-cost carriers; Terminal 2 handles American, Delta, United, JetBlue and international flights.",
+          "linksLabel": "Live flight status",
+          "links": [
+            {
+              "label": "Terminal 1",
+              "url": "https://www.rdu.com/airline-information/flight-status/",
+              "icon": "ti-plane-departure"
+            },
+            {
+              "label": "Terminal 2",
+              "url": "https://www.rdu.com/airline-information/flight-status/",
+              "icon": "ti-plane-departure"
+            }
+          ]
+        },
+        {
+          "id": "union-station",
+          "name": "Raleigh Union Station",
+          "cat": "rail",
+          "kind": "Amtrak · regional transit",
+          "phone": "(919) 833-7594",
+          "website": "https://www.amtrak.com/stations/rgh",
+          "hours": "Daily ~5:45am–10:30pm",
+          "address": "510 W Martin St, Raleigh, NC 27603",
+          "lat": 35.7773,
+          "lng": -78.64751,
+          "tags": [
+            "Amtrak",
+            "Transit",
+            "Bus"
+          ],
+          "blurb": "Downtown Raleigh's Amtrak station (code RGH) in the Warehouse District — about a 12–15 minute walk from the office. Served by the Carolinian, Piedmont and Floridian trains, with connecting GoTriangle and GoRaleigh buses.",
+          "linksLabel": "Schedules",
+          "links": [
+            {
+              "label": "Amtrak (RGH)",
+              "url": "https://www.amtrak.com/stations/rgh",
+              "icon": "ti-train"
+            },
+            {
+              "label": "GoTriangle transit",
+              "url": "https://gotriangle.org/raleigh-union-station-bus-facility/",
+              "icon": "ti-bus"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

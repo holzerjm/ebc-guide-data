@@ -19,8 +19,37 @@ there is nothing to copy to a server.
    place exists and is open, the hours match its own website, and the pin is in the right spot.
 4. **Merge.** Mark it ready for review first — the bot opens drafts deliberately.
 
-For a *Report a change* issue there is no bot: edit `boston/data.json` in the GitHub web editor, which
+For a *Report a change* issue there is no bot: edit that city's `data.json` in the GitHub web editor, which
 opens a pull request for you.
+
+## Two cities
+
+Each guide has its own directory (`boston/`, `raleigh/`), its own pair of issue forms, and its own row in the
+`CITIES` registry in `lib/validate-core.js` — bounding box, section list, state name, guide URL.
+
+**The `city:<key>` label is what routes the bot.** The issue templates apply it, and only someone with triage
+rights can change it. The bot reads it from the event payload and never from the issue body, so the value that
+picks a file on disk cannot be set by a stranger. An issue with no `city:` label, or two of them, gets a polite
+comment instead of a draft — re-label and re-apply `bot:draft`.
+
+If you change a suggestion's city label and re-draft, **close the superseded pull request by hand**. The
+token-holding job deliberately does no mutating GitHub work beyond opening the one PR.
+
+A merge touching both cities posts **two** Slack messages. That is correct, not a fault.
+
+`SLACK_WEBHOOK_URL_BOSTON` / `SLACK_WEBHOOK_URL_RALEIGH` are optional per-city overrides. Neither is set;
+both fall through to the shared `SLACK_WEBHOOK_URL`.
+
+### Adding a city
+
+1. Add a row to `CITIES` in `lib/validate-core.js` — key, label, area, state, stateAbbr, bbox, canon, dataPath,
+   rawUrl, guideUrl. Re-copy that file into each guide repo so all copies stay byte-identical.
+2. Create the `city:<key>` label by hand in *Issues → Labels*. Do not rely on a form auto-creating it.
+3. Add `<key>/data.json` with `"city": "<key>"` in its `meta`.
+4. Add `suggest-place-<key>.yml` and `flag-place-<key>.yml`, both carrying `city:<key>` in `labels:`.
+   The suggestion form may only offer sections, categories and tags that city's data actually has.
+5. Add `<key>` to the `workflow_dispatch` options in `.github/workflows/announce.yml`.
+6. Run `node scripts/cities.mjs --check`. It fails, by name, on every one of the above you skipped.
 
 ## When the checks are red
 
@@ -28,7 +57,10 @@ That is usually the bot telling you something it could not decide:
 
 | Message | What to do |
 |---|---|
-| `coordinates (0, 0) are outside the Boston area` | The address did not geocode. Look the place up and put the real coordinates in. |
+| `coordinates (0, 0) are outside the … area` | The address did not geocode. Look the place up and put the real coordinates in. |
+| `This file says meta.city X but it is being checked as Y` | An entry landed in the wrong city's file. Move it, do not change `meta.city`. |
+| `X/data.json must carry "city": "X"` | The key was dropped, usually by a hand export. Put it back. |
+| `Nothing matched this address inside the … area` | The geocoder found the address, but elsewhere. Check the address **and** the city label. |
 | `cat "…" is not one of this section's categories` | The submitter invented a category. Pick the closest real one. |
 | `N entries are removed` | Intended? Add `allow-removal`. If not, restore them. |
 | `outbound link(s) now point at a different domain` | Check where it goes. If it is right, add `url-change`. |
@@ -139,7 +171,7 @@ Merging here reaches customers in about five minutes and nothing announces it. T
 To check it: *Actions → Announce a content change → Run workflow*. With no merge behind it there is
 nothing to compare, so it reports the total and posts that — enough to prove the webhook works.
 
-The workflow runs on every merge that touches `boston/data.json`; without the secret it writes its summary to the Actions run and posts nothing. The
+The workflow runs on every merge that touches a `<city>/data.json`; without the secret it writes its summary to the Actions run and posts nothing. The
 message names what was added, removed or updated, and links to the guide. It never fails the build — a
 broken webhook must not make a good merge look broken.
 

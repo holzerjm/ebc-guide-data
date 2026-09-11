@@ -1,12 +1,17 @@
 # EBC visitor guide — published data
 
-This repository holds the venue data behind the Red Hat Executive Briefing Center visitor guide at
-**https://people.redhat.com/jholzer/EBC/BostonVisitorGuide/** — the restaurants, bars, activities, hotels and travel
-hubs the guide shows, with their addresses, opening hours, links and map positions.
+This repository holds the venue data behind the Red Hat Executive Briefing Center visitor guides —
+the restaurants, bars, activities, hotels and travel hubs each guide shows, with their addresses, opening
+hours, links and map positions.
 
-It exists so the guide's content can be updated by merging a change here instead of copying a file to the web server.
-Everything in `boston/data.json` is already published on the site itself; this repository is simply the place it is
-edited and reviewed.
+| Guide | Data |
+|---|---|
+| [Boston](https://people.redhat.com/jholzer/EBC/BostonVisitorGuide/) | `boston/data.json` |
+| [Raleigh](https://people.redhat.com/jholzer/EBC/RaleighVisitorGuide/) | `raleigh/data.json` |
+
+It exists so a guide's content can be updated by merging a change here instead of copying a file to the web
+server. Everything in those files is already published on the sites themselves; this repository is simply the
+place it is edited and reviewed.
 
 ## Not an open-source project
 
@@ -21,6 +26,7 @@ The guide's own code is not here. It lives in a separate, private repository.
 | Path | What it is |
 |---|---|
 | `boston/data.json` | The Boston guide's data — sections, categories and one object per venue |
+| `raleigh/data.json` | The Raleigh guide's data. Same shape, different sections — Raleigh has a `bars` tab Boston does not |
 | `lib/validate-core.js` | The validator, and the **city registry** — each city's bounding box, sections and URLs. This repository is its home; each guide's own repository takes its copy from here |
 | `scripts/guard.mjs` | The check that runs on every change (see below) |
 | `scripts/cities.mjs` | The registry on the command line. `--check` asserts that every city has a data file that names itself, a suggestion form and a report form labelled for it, and a form that only offers sections, categories and tags its data actually has |
@@ -32,16 +38,21 @@ Each city has its own directory and its own pair of issue forms. A data file say
 in `meta.city`, and that must agree with the directory it sits in — the two are checked against each other so
 that an entry drafted into the wrong city's file is caught rather than validated against the wrong map.
 
-**No Git needed:** [suggest a place](../../issues/new?template=suggest-place-boston.yml) or
-[report a change](../../issues/new?template=flag-place-boston.yml) with a form — a maintainer turns accepted
-suggestions into a pull request, with the address geocoded for you.
+**No Git needed**, and pick the city you mean:
+[suggest a place — Boston](../../issues/new?template=suggest-place-boston.yml) ·
+[report a change — Boston](../../issues/new?template=flag-place-boston.yml) ·
+[suggest a place — Raleigh](../../issues/new?template=suggest-place-raleigh.yml) ·
+[report a change — Raleigh](../../issues/new?template=flag-place-raleigh.yml).
+A maintainer turns accepted suggestions into a pull request, with the address geocoded for you.
 
-**With Git:** open a pull request against `boston/data.json`. See [CONTRIBUTING.md](CONTRIBUTING.md) for the
+**With Git:** open a pull request against that city's `data.json`. See [CONTRIBUTING.md](CONTRIBUTING.md) for the
 entry format, and [MAINTAINING.md](MAINTAINING.md) if you are reviewing them. Every change is checked
 automatically before it can merge:
 
-- **The schema must validate.** Required fields, a category that exists, coordinates inside Greater Boston, `http(s)`
-  links only, no HTML in text fields, and hex-only category colours.
+- **The schema must validate.** Required fields, a category that exists, coordinates inside that city's own
+  bounding box, `http(s)` links only, no HTML in text fields, and hex-only category colours.
+- **The file must say which city it is.** `meta.city` has to match the directory the file sits in. This is what
+  catches an entry drafted into the wrong city's file, which would otherwise be checked against the wrong map.
 - **An entry may not disappear.** Venue ids are embedded in the itinerary links customers are sent, so deleting an
   entry silently drops a stop from an itinerary somebody already has. Intentional removals need the `allow-removal`
   label.
@@ -52,7 +63,9 @@ To check a change before pushing:
 
 ```bash
 node scripts/guard.mjs boston/data.json                      # schema only
+node scripts/guard.mjs raleigh/data.json                    # the other city
 node scripts/guard.mjs boston/data.json /path/to/previous.json   # and the comparison gates
+node scripts/cities.mjs --check                             # every city has a data file, forms and a label
 ```
 
 Nothing published here reaches the live site on its own. A maintainer merges, and the guide picks the data up from
