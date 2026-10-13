@@ -1,9 +1,9 @@
 {
   "meta": {
     "city": "boston",
-    "version": 14,
-    "updatedAt": "2026-09-11",
-    "updatedBy": "Tagged the file with its city, ahead of Raleigh joining the repository",
+    "version": 15,
+    "updatedAt": "2026-10-13",
+    "updatedBy": "Added Celine, Fort Point",
     "michelinEdition": "2025"
   },
   "center": {
@@ -1282,6 +1282,27 @@
           ],
           "blurb": "Jamie Bissonnette's Basque pintxo bar on Beacon Hill — small plates, Iberian hams and a Spanish wine list.",
           "addedOn": "2026-09-10"
+        },
+        {
+          "id": "celine",
+          "name": "Celine",
+          "cat": "american",
+          "kind": "French-Canadian tavern",
+          "price": "$$$",
+          "phone": "(617) 936-4397",
+          "website": "https://www.celineboston.com/",
+          "hours": "Dinner daily from 4pm; bar to 11pm, Thu–Sat to midnight",
+          "address": "324 A St, Boston, MA 02210",
+          "lat": 42.34934,
+          "lng": -71.04964,
+          "tags": [
+            "Date",
+            "Drinks",
+            "Impress",
+            "Late"
+          ],
+          "blurb": "French-Canadian cooking in an American tavern setting from the Coda group (SRV, The Salty Pig) — poutine, steak frites, rotisserie duck and Montréal-inspired cocktails.",
+          "addedOn": "2026-10-13"
         }
       ]
     },
